@@ -1,5 +1,5 @@
 services:
-  # Service untuk Nginx
+  # Service untuk Nginx (Web Server)
   nginx:
     image: nginx:alpine
     container_name: inhealtcare-nginx
@@ -16,7 +16,7 @@ services:
     networks:
       - yii-network
 
-  # Service untuk PHP-FPM
+  # Service untuk PHP-FPM (Application Server)
   php:
     build:
       context: . # Build dari Dockerfile di direktori saat ini (root proyek)
@@ -29,18 +29,34 @@ services:
     environment:
       - PHP_SESSION_SAVE_PATH=/var/lib/php/sessions
     env_file:
-      # Kredensial database & mode aplikasi. Berkas ini tidak masuk version
-      # control (lihat .gitignore). Salin dari .env.example untuk membuatnya.
-      # Ditandai optional agar stack tetap jalan memakai nilai fallback
-      # di protected/config/db*.php bila .env belum dibuat.
       - path: .env
         required: false
+    depends_on:
+      - db
+    networks:
+      - yii-network
+
+  # Service untuk PostgreSQL Database (Lokal / Standalone)
+  db:
+    image: postgres:14-alpine
+    container_name: inhealtcare-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-inhealth}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASS:-rss@j@y@2025}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/db-init:/docker-entrypoint-initdb.d
     networks:
       - yii-network
 
 volumes:
   php-socket: # Definisikan volume bersama untuk socket
   php-sessions: # Volume untuk session files
+  pgdata: # Volume persisten untuk data PostgreSQL
 
 networks:
   yii-network:
