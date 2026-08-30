@@ -1,10 +1,14 @@
 # .dockerignore
-
-# Abaikan folder cache Nginx dari build context
+.git
+.gitignore
+.env
+.vscode
+.agents
+bitbucket-pipelines.yml
 nginx-cache
-
-# Anda juga bisa menambahkan folder lain yang tidak perlu ada di dalam image
-# .git
-# .vscode
-# node_modules
-# README.md
+protected/runtime/*
+!protected/runtime/.gitkeep
+assets/*
+!assets/.gitkeep
+README.md
+DEVLOG.md
