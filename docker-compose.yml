@@ -28,6 +28,11 @@ services:
       - php-sessions:/var/lib/php/sessions
     environment:
       - PHP_SESSION_SAVE_PATH=/var/lib/php/sessions
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_NAME=${DB_NAME:-inhealth}
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASS=${DB_PASS:-rss@j@y@2025}
     env_file:
       - path: .env
         required: false
@@ -46,7 +51,7 @@ services:
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASS:-rss@j@y@2025}
     ports:
-      - "5432:5432"
+      - "${DB_HOST_PORT:-5433}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./docker/db-init:/docker-entrypoint-initdb.d
