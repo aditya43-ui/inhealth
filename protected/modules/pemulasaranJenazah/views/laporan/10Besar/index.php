@@ -1,0 +1,83 @@
+<?php
+$this->breadcrumbs = array(
+    'Laporan 10 Besar Penyakit',
+);
+
+$arrMenu = array();
+$this->menu = $arrMenu;
+
+$this->widget('bootstrap.widgets.BootAlert');
+?>
+<?php
+$url = Yii::app()->createUrl('pemulasaranJenazah/laporan/frameGrafik10BesarPenyakit&id=1');
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+$('.search-form').toggle();
+return false;
+});
+$('#searchLaporan').submit(function(){
+$('#Grafik').attr('src','').css('height','0px');
+$.fn.yiiGridView.update('tableLaporan', {
+        data: $(this).serialize()
+});
+return false;
+});
+");
+?>
+<div class='panel panel-gradient'>
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="entypo-newspaper"></i> Laporan <b>10 Besar Penyakit</b>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <i class="entypo-search"></i> Pencarian
+                </div>
+            </div>
+            <div class="panel-body">
+
+                <div class="search-form">
+                    <?php $this->renderPartial('10Besar/_search', array(
+                        'model' => $model, 'format' => $format
+                    )); ?>
+                </div>
+                <!--search-form-->
+            </div>
+        </div>
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <i class="entypo-credit-card"></i> Tabel <b>10 Besar Penyakit</b>
+                </div>
+            </div>
+            <div class="panel-body table-responsive">
+                <?php $this->renderPartial('10Besar/_table', array('model' => $model)); ?>
+            </div>
+        </div>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <i class="fas fa-chart-bar"></i> Grafik
+                </div>
+            </div>
+            <div class="panel-body">
+                <?php $this->renderPartial('_tab'); ?>
+                <iframe class='biru' src="" id="Grafik" width="100%" height='0' onload="javascript:resizeIframe(this);"></iframe>
+            </div>
+        </div>
+        <?php
+        $controller = Yii::app()->controller->id; //mengambil Controller yang sedang dipakai
+        $module = Yii::app()->controller->module->id; //mengambil Module yang sedang dipakai
+        $urlPrint =  Yii::app()->createAbsoluteUrl($module . '/' . $controller . '/printLaporan10BesarPenyakit');
+        $this->renderPartial('_footer_pisah', array('urlPrint' => $urlPrint, 'url' => $url));
+        ?>
+        <?php $this->renderPartial('_jsFunctions', array('model' => $model)); ?>
+    </div>
+</div>

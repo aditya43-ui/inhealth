@@ -1,0 +1,94 @@
+.page-container.horizontal-menu header.navbar .navbar-nav > li > a {
+
+
+    padding-right: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 5px !important;   
+
+}
+
+.page-container.horizontal-menu header.navbar .navbar-brand {
+
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.page-container.horizontal-menu header.navbar ul.nav > li > a, .page-container.horizontal-menu header.navbar ul.nav > li > span{
+    padding: 25px 5px;
+
+}
+
+.page-container.horizontal-menu header.navbar ul.nav > li.dropdown .dropdown-menu{
+    background-color:white;
+}
+
+.page-container.horizontal-menu header.navbar ul.nav > li.dropdown > a {
+    margin-top:25px;
+    margin-left:5px; 
+    margin-right:5px;
+}
+.profilsty{
+    margin-top:10px !important; color:#7469b2 !important;
+}
+.namesty{
+    font-weight:bold;font-size:9pt;color:#7469b2;
+}
+.sidesty{
+    font-size:32px;color:#7469b2 !important;
+}
+.namelongsty{
+    color:#7469b2 !important;
+}
+.logsty{
+    color:#7469b2 !important;font-size:14px!important;
+}
+.navsty {
+
+    border-top: 4px solid #7469b2;
+}
+.footsty{
+    padding-bottom:10px;background-color:#7469b2;border-bottom-right-radius:10px;border-bottom-left-radius:10px;
+}
+.mainmenuatas>li>ul:nth-of-type(1) {
+    overflow-y: auto !important;
+    max-height: 500px !important;
+}
+.mainmenuatas li ul{
+    border-top: 4px solid #7469b2 !important;
+}  
+#myModalutama .sidebar-menu{
+    width:320px !important;
+}
+.ui-widget-header{
+    color: #fff !important;
+    background: #7469b2 !important;
+}
+.ui-datepicker-month,ui-datepicker-year{
+    color:#848282 !important;
+}
+body .page-container .sidebar-menu #main-menu li.active > a{
+    background-color:#e9e9e9;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    #myModalutama {
+        display: none;
+    }
+
+}   
+@media only screen and (max-width: 879px) {                 
+
+    .form-horizontal .control-label{float:left;width:100%;padding:3px;text-align:left;font-size:11.5px}
+}
+@media only screen and (min-width: 880px) {
+    .form-horizontal .control-label{float:left;width:125px;padding-top:0px;text-align:right;font-size:11.5px}
+}
+.mainmenuatas li ul{
+    z-index:1003;
+}
+
+.profilmenussty{
+    width:300px !important;
+}
+

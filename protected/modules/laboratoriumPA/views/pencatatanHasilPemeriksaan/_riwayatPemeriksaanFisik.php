@@ -1,0 +1,29 @@
+<div class="row-fluid">
+    <div class="span11">
+        <?php 
+            $this->widget('ext.bootstrap.widgets.BootDetailView',array(
+                'data'=>$modPemeriksaan,
+                'attributes'=>array(
+                    array(
+                        'name'=>'tglperiksafisik',
+                        'value'=>MyFormatter::formatDateTimeForUser($modPemeriksaan->tglperiksafisik),
+                    ),
+                    'keadaanumum',
+                    'inspeksi',
+                    'palpasi',
+                    'perkusi',
+                    'auskultasi',
+                    'tekanandarah',
+                    'detaknadi',
+                    'suhutubuh',
+                    'beratbadan_kg',
+                    'tinggibadan_cm',
+                    'bb_ideal',
+                    'pernapasan',
+                    'kelainanpadabagtubuh',
+                    'paramedis_nama',
+                ),
+            )); 
+    ?>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<tr>
+    <td>
+        <?php echo CHtml::hiddenField('no_urut',0,array('readonly'=>true,'class'=>'span1 desimal', 'style'=>'width:20px;')); ?>
+        <?php echo CHtml::activeCheckBox($modDetail,'[ii]checklist', array('class'=>'checklist',"onclick"=>"setNol(this);")); ?>
+        <?php echo CHtml::activeHiddenField($modDetail,'[ii]pengbonusthr_id'); ?>
+        <?php echo CHtml::activeHiddenField($modDetail,'[ii]totalpajak',array('onkeypress'=>"return $(this).focusNextInputField(event);",'class'=>'integer-decimal')); ?>
+    </td>
+      <td>
+        <?php echo $index; ?>
+    </td>
+    <td><span><?php echo (!empty($modDetail->periodebonusthr) ? MyFormatter::getMonthUserGaji(date('m', strtotime(MyFormatter::formatDateTimeForDb($modDetail->periodebonusthr)))).' '.date('Y', strtotime(MyFormatter::formatDateTimeForDb($modDetail->periodebonusthr))) : "") ?></span></td>
+    <td><span><?php echo (!empty($modDetail->tglpengajuan) ? MyFormatter::formatDateTimeForUser($modDetail->tglpengajuan) : "") ?></span></td>
+    <td>
+      <?php echo $modDetail->jenisgaji; ?>
+  </td>
+    <td><span style="text-align: right">Rp <?php echo MyFormatter::formatNumberForPrint((!empty($modDetail->totalpajak) ? $modDetail->totalpajak : 0),2) ?></span></td>
+    <td style="text-align: right">
+        <?php echo CHtml::activeTextField($modDetail,'[ii]jmldibayarkan',array('class'=>'span2 integer-decimal','onblur'=>'hitungsisa(this)','onkeypress'=>"return $(this).focusNextInputField(event);",'disabled'=>true)); ?>
+    </td>
+    <td style="text-align: right">
+            <?php echo CHtml::activeTextField($modDetail,'[ii]jmlsisahutang',array('readonly'=>true,'class'=>'span2 integer-decimal','onkeyup'=>"return $(this).focusNextInputField(event);")); ?>
+    </td>
+    <td>
+     <?php echo CHtml::activeTextArea($modDetail,'[ii]keterangan',array('class'=>'span2','onkeyup'=>"return $(this).focusNextInputField(event);",'disabled'=>true)); ?>
+    </td>
+</tr>

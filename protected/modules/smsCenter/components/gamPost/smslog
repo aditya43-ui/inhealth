@@ -1,0 +1,151 @@
+[Gammu            - 1.30.0 built 15:35:54 Jul 27 2011 using GCC 4.6]
+[Connection       - "at19200"]
+[Connection index - 0]
+[Model type       - ""]
+[Device           - "/dev/ttyUSB0"]
+[Running on       - Linux, kernel 3.0.0-12-generic (#20-Ubuntu SMP Fri Oct 7 14:50:42 UTC 2011)]
+Serial device: DTR is up, RTS is up, CAR is up, CTS is up
+Setting speed to 19200
+[Module           - "auto"]
+Escaping SMS mode
+Sending simple AT command to wake up some devices
+1 "AT"
+2 "OK"
+Enabling echo
+1 "ATE1"
+2 "OK"
+Trying Motorola mode switch
+1 "AT+MODE=2"
+2 "ERROR"
+Seems not to be supported
+Enabling CME errors
+1 "AT+CMEE=1"
+2 "OK"
+1 "AT+CSCS?"
+2 "+CSCS: "GSM""
+3 "OK"
+1 "AT+CGMI"
+2 "huawei"
+3 "OK"
+Manufacturer info received
+[Manufacturer: Huawei]
+1 "AT+CSCS=?"
+2 "+CSCS: ("IRA","GSM","UCS2")"
+3 "OK"
+Chosen GSM as normal charset
+Chosen UCS2 as unicode charset
+Getting model
+1 "AT+CGMM"
+2 "E161"
+3 "OK"
+[Model name: `E161']
+[Model data: `E161']
+[Model data: `E161']
+Checking for OBEX support
+1 "AT+CPROT=?"
+2 "ERROR"
+Checking for SYNCML/OBEX support
+1 "AT+SYNCML=?"
+2 "ERROR"
+Checking for SYNCML/OBEX support
+1 "AT$TSSPCSW=?"
+2 "ERROR"
+[Module           - "A2D|iPAQ|at|M20|S25|MC35|TC35|C35i|S65|S300|5110|5130|5190|5210|6110|6130|6150|6190|6210|6250|6310|6310i|6510|7110|8210|8250|8290|8310|8390|8850|8855|8890|8910|9110|9210"]
+Escaping SMS mode
+Sending simple AT command to wake up some devices
+1 "AT"
+2 "OK"
+Enabling echo
+1 "ATE1"
+2 "OK"
+Trying Motorola mode switch
+1 "AT+MODE=2"
+2 "ERROR"
+Seems not to be supported
+Enabling CME errors
+1 "AT+CMEE=1"
+2 "OK"
+1 "AT+CSCS?"
+2 "+CSCS: "GSM""
+3 "OK"
+1 "AT+CGMI"
+2 "huawei"
+3 "OK"
+Manufacturer info received
+[Manufacturer: Huawei]
+1 "AT+CSCS=?"
+2 "+CSCS: ("IRA","GSM","UCS2")"
+3 "OK"
+Chosen GSM as normal charset
+Chosen UCS2 as unicode charset
+Checking for OBEX support
+1 "AT+CPROT=?"
+2 "ERROR"
+Checking for SYNCML/OBEX support
+1 "AT+SYNCML=?"
+2 "ERROR"
+Checking for SYNCML/OBEX support
+1 "AT$TSSPCSW=?"
+2 "ERROR"
+Getting firmware versions
+1 "AT+CGMR"
+2 "11.806.02.06.00"
+3 "OK"
+Received firmware version: "11.806.02.06.00"
+Number version is "11.806021"
+[Connected]
+Entering GSM_GetManufacturer
+1 "AT+CGMI"
+2 "huawei"
+3 "OK"
+Manufacturer info received
+[Manufacturer: Huawei]
+Leaving GSM_GetManufacturer
+Entering GSM_GetModel
+Getting model
+1 "AT+CGMM"
+2 "E161"
+3 "OK"
+[Model name: `E161']
+[Model data: `E161']
+[Model data: `E161']
+Leaving GSM_GetModel
+Entering GSM_GetFirmware
+Getting firmware versions
+1 "AT+CGMR"
+2 "11.806.02.06.00"
+3 "OK"
+Received firmware version: "11.806.02.06.00"
+Number version is "11.806021"
+Leaving GSM_GetFirmware
+Entering GSM_GetPPM
+GSM_GetPPM failed with error NOTSUPPORTED[21]: Function not supported by phone.
+Leaving GSM_GetPPM
+Entering GSM_GetHardware
+GSM_GetHardware failed with error NOTSUPPORTED[21]: Function not supported by phone.
+Leaving GSM_GetHardware
+Entering GSM_GetIMEI
+Getting IMEI
+1 "AT+CGSN"
+2 "352203034575112"
+3 "OK"
+Received IMEI 352203034575112
+Leaving GSM_GetIMEI
+Entering GSM_GetOriginalIMEI
+GSM_GetOriginalIMEI failed with error NOTSUPPORTED[21]: Function not supported by phone.
+Leaving GSM_GetOriginalIMEI
+Entering GSM_GetManufactureMonth
+GSM_GetManufactureMonth failed with error NOTSUPPORTED[21]: Function not supported by phone.
+Leaving GSM_GetManufactureMonth
+Entering GSM_GetProductCode
+GSM_GetProductCode failed with error NOTSUPPORTED[21]: Function not supported by phone.
+Leaving GSM_GetProductCode
+Entering GSM_GetSIMIMSI
+Getting SIM IMSI
+1 "AT+CIMI"
+2 "510101962000622"
+3 "OK"
+Received IMSI 510101962000622
+Leaving GSM_GetSIMIMSI
+[Terminating]
+[Closing]

@@ -1,0 +1,271 @@
+<style>
+    body {
+        color: black;
+    }
+
+    .border th,
+    .border td {
+        border: 1px solid #000;
+        padding: 2px;
+    }
+
+    .table thead:first-child {
+        border-top: 1px solid #000;
+    }
+
+    thead th {
+        background: none;
+        color: #333;
+    }
+
+    .table tbody tr td,
+    .table tbody tr th {
+        background-color: none;
+    }
+
+    .table {
+        box-shadow: none;
+    }
+</style>
+
+<table style="width: 100%; border: none;">
+    <thead>
+        <tr>
+            <td>
+                <div class="header">
+                    <?php
+                    echo $this->renderPartial('application.views.headerReport.headerDefaultNew', array());
+                    ?></div>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div class="content">
+                    <div class="judulcontent" style="text-align: center;">
+                        <b>RINCIAN SETORAN HUTANG PAJAK PEMBELIAN</b>
+                    </div>
+                    <br>
+                    <table style="width: 100%; border: none;">
+                        <tr>
+                            <td width="50%">
+                                <table style="width: 100%; border: none;">
+                                    <tr>
+                                        <td width="180px"> Tgl. Kas Keluar </td>
+                                        <td>
+                                            : <?php echo MyFormatter::formatDateTimeForUser($modBuktiKeluar->tglkaskeluar); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Tgl. Penyetoran</td>
+                                        <td>
+                                            : <?php echo $tglsetoran; ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> No. Kas Keluar </td>
+                                        <td>
+                                            : <?php echo CHtml::encode($modBuktiKeluar->nokaskeluar); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> No. Penyetoran </td>
+                                        <td>
+                                            : <?php echo CHtml::encode($modBuktiKeluar->no_setorpajakpembelian); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Cara Pembayaran </td>
+                                        <td>
+                                            : <?php echo $modBuktiKeluar->carabayarkeluar; ?>
+                                        </td>
+                                    </tr>
+                                    <?php if ($modBuktiKeluar->carabayarkeluar == Params::CARAPEMBAYARAN_TRANSFER) { ?>
+                                        <tr>
+                                            <td> Nama Bank Penerima </td>
+                                            <td>
+                                                : <?php echo (isset($modBuktiKeluar->bank_id) ? BankM::model()->findByPk($modBuktiKeluar->bank_id)->namabank : ""); ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> No Rekening Penerima </td>
+                                            <td>
+                                                : <?php echo $modBuktiKeluar->denganrekening; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> No Struk Bukti Transfer </td>
+                                            <td>
+                                                : <?php echo $modBuktiKeluar->nobukti_transfer; ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    <tr>
+                                        <td> Nama Penerima </td>
+                                        <td>
+                                            : <?php echo $modBuktiKeluar->namapenerima; ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Alamat Penerima </td>
+                                        <td>
+                                            : <?php echo $modBuktiKeluar->alamatpenerima; ?>
+                                        </td>
+                                    </tr>
+                                    <?php if ($modBuktiKeluar->carabayarkeluar == Params::CARAPEMBAYARAN_TUNAI) { ?>
+                                        <tr>
+                                            <td> Keterangan </td>
+                                            <td>
+                                                : <?php echo CHtml::encode($modBuktiKeluar->untukpembayaran); ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </table>
+                            </td>
+                            <td width="50%">
+                                <table style="width: 100%; border: none;">
+                                    <?php
+                                    if ($modBuktiKeluar->carabayarkeluar == Params::CARAPEMBAYARAN_TRANSFER) {
+                                    ?>
+                                        <tr>
+                                            <td width="150px"> Keterangan </td>
+                                            <td>
+                                                : <?php echo $modBuktiKeluar->untukpembayaran; ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+
+                                    <tr>
+                                        <td> Total Utang </td>
+                                        <td>
+                                            : Rp<?php echo (!empty($totalhutang) ? MyFormatter::formatNumberForPrint($totalhutang, 2) : "-"); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Total Setoran </td>
+                                        <td>
+                                            : Rp<?php echo (!empty($jmlpembayaran) ? MyFormatter::formatNumberForPrint($jmlpembayaran, 2) : "-"); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Biaya Meterai </td>
+                                        <td>
+                                            : Rp<?php echo (!empty($modBuktiKeluar->biaya_materai) ? MyFormatter::formatNumberForPrint($modBuktiKeluar->biaya_materai, 2) : "-"); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Jumlah Kas Keluar </td>
+                                        <td>
+                                            : Rp<?php echo (!empty($modBuktiKeluar->jmlkaskeluar) ? MyFormatter::formatNumberForPrint($modBuktiKeluar->jmlkaskeluar, 2) : "-"); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Total Sisa Utang </td>
+                                        <td>
+                                            : Rp<?php echo (!empty($totalsisahutang) ? MyFormatter::formatNumberForPrint($totalsisahutang, 2) : "-"); ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <p style="text-align: center;">RINCIAN HUTANG
+                    <p style="margin: 0; text-align: center;">
+                    <div style="border: 1px solid black; width: 80%;"></div>
+                    </p>
+                    </p>
+                    <br>
+                    <table width="85%" style='margin-left:auto; margin-right:auto;' class="border">
+                        <thead class="border">
+                            <th>No.</th>
+                            <th>No Faktur</th>
+                            <th>Total Utang</th>
+                            <th>Total Setoran</th>
+                            <th>Total Sisa Utang</th>
+                            <th>Keterangan</th>
+                        </thead>
+                        <?php
+                        foreach ($model as $i => $modData) {
+                            $noFaktur = "";
+                            if (!empty($modData->terimapersediaan_id)) {
+                                $noFaktur = (isset($modData->terimapersediaan) ? $modData->terimapersediaan->nofaktur : "");
+                            } else if (!empty($modData->fakturpembelian_id)) {
+                                $noFaktur = (isset($modData->fakturpembelian) ? $modData->fakturpembelian->nofaktur : "");
+                            } else if (!empty($modData->terimabahanmakan_id)) {
+                                $noFaktur = (isset($modData->terimabahanmakan) ? $modData->terimabahanmakan->nofaktur : "");
+                            }
+                        ?>
+                            <tr class="border">
+                                <td><?php echo ($i + 1) . "."; ?></td>
+                                <td><?php echo $noFaktur; ?></td>
+                                <td style="text-align:right;">Rp<?php echo MyFormatter::formatNumberForPrint($modData->totalhutang, 2); ?></td>
+                                <td style="text-align:right;">Rp<?php echo MyFormatter::formatNumberForPrint($modData->jmlpembayaran, 2); ?></td>
+                                <td style="text-align:right;">Rp<?php echo MyFormatter::formatNumberForPrint($modData->totalsisahutang, 2); ?></td>
+                                <td>
+                                    <?php echo $modData->keterangansetoran; ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <div class="footer-space">&nbsp;</div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="">
+</div>
+<?php
+if (!isset($_GET['caraPrint'])) {
+?>
+    <div class="form-actions">
+        <?php
+        echo CHtml::link(
+            Yii::t('mds', '{icon} Print', array('{icon}' => '<i class="entypo-print"></i>')),
+            'javascript:void(0);',
+            array(
+                'class' => 'btn btn-info',
+                'onClick' => 'print("PRINT")'
+            )
+        );
+        ?>
+    </div>
+<?php
+    $urlPrint = $this->createUrl('rincian', array('tandabuktikeluar_id' => $modBuktiKeluar->tandabuktikeluar_id, 'caraPrint' => 'PRINT'));
+    $js = <<< JSCRIPT
+function print(caraPrint)
+{
+window.open("${urlPrint}&caraPrint="+caraPrint,"",'location=_new, width=900px');
+
+}
+JSCRIPT;
+    Yii::app()->clientScript->registerScript('print', $js, CClientScript::POS_HEAD);
+} else {
+?>
+
+    <?php
+    $profil = ProfilrumahsakitM::model()->findByPk(Params::getDefaultProfilRS());
+    $alamat = !empty($profil->alamatlokasi_rumahsakit) ? $profil->alamatlokasi_rumahsakit : "";
+    $motto = !empty($profil->motto) ? $profil->motto : "";
+    $telp = !empty($profil->no_telp_profilrs) ? $profil->no_telp_profilrs : "";
+    $email = !empty($profil->email) ? $profil->email : "";
+    $website = !empty($profil->website) ? $profil->website : "";
+    $layoutkiri = $alamat . "<br>" . "Telp:" . $telp . " Email:" . $email . " Website:" . $website;
+    ?>
+    <table width="100%" class="footer">
+        <tr>
+            <td width="70%" style="text-align:left" align="left" class="alamatfooter"><?php echo  $layoutkiri ?></td>
+            <td class="mottofooter" style="text-align:right" width="30%" align="right"><?php echo $motto ?></td>
+        </tr>
+
+    </table>
+<?php
+}
+?>

@@ -1,0 +1,49 @@
+<?php
+    $get = isset($_GET["r"]) ? $_GET["r"]: '#';
+
+    if(stripos($get, 'rawatJalan') !== false){
+        $kepala = 'kepala-rawat-jalan';
+    }else if(stripos($get, 'rawatInap') !== false){
+        $kepala = 'kepala-rawat-inap';
+    }else if(stripos($get, 'rawatDarurat') !== false){
+        $kepala = 'kepala-rawat-darurat';
+    }else if(stripos($get, 'rehabMedis') !== false){
+        $kepala = 'kepala-rehab-medis';
+    }else if(stripos($get, 'farmasiApotek') !== false){
+        $kepala = 'kepala-farmasi-apotek';
+    }else if(stripos($get, 'radiologi') !== false){
+        $kepala = 'kepala-radiologi';
+    }else if(stripos($get, 'laboratorium') !== false){
+        $kepala = 'kepala-laboratorium';
+    }else if(stripos($get, 'persalinan') !== false){
+        $kepala = 'kepala-persalinan';
+    }else if(stripos($get, 'bedahSentral') !== false){
+        $kepala = 'kepala-bedah-sentral';
+    }else if(stripos($get, 'gizi') !== false){
+        $kepala = 'kepala-gizi';
+    }else if(stripos($get, 'smsCenter') !== false){
+        $kepala = 'kepala-sms-center';
+    }else if(stripos($get, 'billingKasir') !== false){
+        $kepala = 'kepala-billing-kasir';
+    }else if(stripos($get, 'informasi') !== false){
+        $kepala = 'kepala-informasi';
+    }else if(stripos($get, 'pendaftaranPenjadwalan') !== false){
+        $kepala = 'kepala-pendaftaran-penjadwalan';
+    }else if(stripos($get, 'sistemAdministrator') !== false){
+        $kepala = 'kepala-sistem-admin';
+    }else if(stripos($get, 'gudangUmum') !== false){
+        $kepala = 'kepala-gudang-umum';
+    }else if(stripos($get, 'gudangFarmasi') !== false){
+        $kepala = 'kepala-gudang-farmasi';
+    }else if(stripos($get, 'akuntansi') !== false){
+        $kepala = 'kepala-akuntansi';
+    }else if(stripos($get, 'kepegawaian') !== false){
+        $kepala = 'kepala-kepegawaian';
+    }else if(stripos($get, 'rekamMedis') !== false){
+        $kepala = 'kepala-rekam-medis';
+    }else{
+        $kepala = 'kepala';
+    }
+?>
+    
+<div class=<?php echo $kepala; ?>></div>

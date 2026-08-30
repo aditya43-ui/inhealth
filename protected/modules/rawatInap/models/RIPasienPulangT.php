@@ -1,0 +1,37 @@
+<?php
+
+
+class RIPasienPulangT  extends PasienpulangT
+{
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return PasienpulangT the static model class
+     */
+    public static function model($className=__CLASS__)
+    {
+            return parent::model($className);
+    }
+        
+    /**
+    * Mengambil daftar semua carakeluar_m
+    * @return CActiveDataProvider 
+    */
+    public function getCarakeluarItems()
+    {
+        return CarakeluarM::model()->findAllByAttributes(array('carakeluar_aktif'=>true),array('condition' =>  " carakeluar_id != ".Params::CARAKELUAR_ID_RAWATINAP." "),array('order'=>'carakeluar_nama'));
+    }
+
+    /**
+    * Mengambil daftar semua kondisikeluar
+    * @return CActiveDataProvider 
+    */
+    public function getKondisikeluarItems($carakeluar_id=null)
+    {
+         if(!empty($carakeluar_id))
+               return KondisiKeluarM::model()->findAllByAttributes(array('carakeluar_id'=>$carakeluar_id,'kondisikeluar_aktif'=>true),array('order'=>'kondisikeluar_nama'));
+        else
+               return array();
+    }
+
+}

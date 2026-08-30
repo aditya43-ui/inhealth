@@ -1,0 +1,20 @@
+ @page {
+        margin-top: 12mm;
+    }
+    
+@media print {
+    #headers {
+        position: fixed;
+        width:100%;
+        top: 0;
+    }
+
+    body {
+        display:table;
+        table-layout:fixed;
+        padding-top:4cm;            
+                    padding-bottom:1cm;  
+                    padding-left:0.5cm;			
+        height:auto;
+    }
+}

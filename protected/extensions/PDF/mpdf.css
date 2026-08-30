@@ -1,0 +1,72 @@
+/*
+   This is a secondary default stylesheet for mPDF
+   It will only parse element-level CSS here 
+   Remove the comment marks below and edit as required
+*/
+
+
+
+/* 
+   These values used to be the default prior to mPDF 4.2
+   Altered to make appearance closer to that of browsers
+   Uncomment these lines to return to behaviour prior to v4.2  
+*/
+
+
+/*
+img { margin: 0.83em 0; vertical-align: bottom; }
+table { margin: 0.5em; }
+textarea { vertical-align: top; }
+*/
+html, body {
+
+    font-family: Calibri !important;
+
+}
+
+
+.footer .alamatfooter{
+    font-size:8pt !important;
+    font-family: Calibri !important;
+    color:black !important;
+    width:75%;
+    text-align:left;
+}
+.footer .mottofooter {
+    font-size:9pt !important;
+    font-family:Mistral !important;
+    color:#00adef !important;
+    width:25%;
+    text-align:right;
+
+}
+.footer table{
+    width:100%;
+}
+.content,.content DIV,.content TABLE,.content TBODY,.content TFOOT,.content TR,.content TH,.content TD,.content P{
+    font-size:11pt !important;
+    font-family: Calibri !important;
+    color:black !important;
+}
+.content .judulcontent{
+    font-size:12pt !important;
+    font-family: Calibri !important;
+    color:black !important;
+}
+
+   @font-face {
+                    font-family: 'Mistral';
+                    font-style: normal;
+                    font-weight: normal;
+                    src: local('Mistral'), url('<?php echo Yii::app()->request->baseUrl; ?>/css/font/MISTRAL.woff') format('woff');
+                }
+                @font-face {
+                    font-family: 'Calibri';
+                    font-style: normal;
+                    src: local('Calibri'), url('<?php echo Yii::app()->request->baseUrl; ?>/css/font/Calibri Regular.ttf') format('woff');
+                }
+                 @font-face {
+                    font-family: 'CalibriB';
+                    font-style: bold;
+                    src: local('CalibriB'), url('<?php echo Yii::app()->request->baseUrl; ?>/css/font/Calibri Bold.TTF') format('woff');
+                }

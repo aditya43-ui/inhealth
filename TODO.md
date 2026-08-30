@@ -1,0 +1,4 @@
+- [x] Fix bugs in js/nodejs/index_https.js: Remove duplicate console.log, refactor 'send' event to avoid redundant emits, fix infoAntrian emit fields.
+- [x] Create Dockerfile in root for Yii app.
+- [x] Create docker-compose.yml in root for Yii app.
+- [x] Test with docker-compose up --build (Docker daemon not running, but files created successfully).

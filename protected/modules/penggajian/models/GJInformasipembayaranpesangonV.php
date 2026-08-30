@@ -1,0 +1,108 @@
+<?php
+
+class GJInformasipembayaranpesangonV extends InformasipembayaranpesangonV
+{
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return InformasipembayarangajiV the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+	
+    
+    public function searchInformasi() {
+        $criteria = new CDbCriteria();
+        
+        $criteria->compare('lower(nopengeluaran)', strtolower($this->nopengeluaran), true);
+        $criteria->compare('lower(nokaskeluar)', strtolower($this->nokaskeluar), true);
+        
+        $criteria->group = "totalharga, (case when periodegaji is null then (extract(year from tglpesangon) || '-' || extract(month from tglpesangon) || '-01')::date else periodegaji end)::date, pengeluaranumum_id, nopengeluaran, nokaskeluar";
+        $criteria->select = "totalharga, (case when periodegaji is null then (extract(year from tglpesangon) || '-' || extract(month from tglpesangon) || '-01')::date else periodegaji end)::date as periodegaji, pengeluaranumum_id, nopengeluaran, nokaskeluar, sum(totalterima) as totalterima, sum(totalpotongan) as totalpotongan";
+        
+        $criteria->addCondition("(case when periodegaji is null then (extract(year from tglpesangon) || '-' || extract(month from tglpesangon) || '-01')::date else periodegaji end)::date between '".date('Y-m-01', strtotime($this->periodegaji.'-01'))."'::date and '".date('Y-m-t', strtotime($this->periodegaji.'-01'))."'::date");
+    
+        
+        // var_dump($criteria); die;
+        
+        return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+    }
+    
+	public function searchDetail($id=null)
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		if(!empty($this->jenispengeluaran_id)){
+			$criteria->addCondition('jenispengeluaran_id = '.$this->jenispengeluaran_id);
+		}
+		$criteria->compare('LOWER(jenispengeluaran_kode)',strtolower($this->jenispengeluaran_kode),true);
+		$criteria->compare('LOWER(jenispengeluaran_nama)',strtolower($this->jenispengeluaran_nama),true);
+		if(!empty($this->pengeluaranumum_id)){
+			$criteria->addCondition('pengeluaranumum_id = '.$this->pengeluaranumum_id);
+		}
+		$criteria->compare('LOWER(kelompoktransaksi)',strtolower($this->kelompoktransaksi),true);
+		$criteria->compare('LOWER(nopengeluaran)',strtolower($this->nopengeluaran),true);
+		$criteria->compare('LOWER(tglpengeluaran)',strtolower($this->tglpengeluaran),true);
+		if(!empty($this->tandabuktikeluar_id)){
+			$criteria->addCondition('tandabuktikeluar_id = '.$this->tandabuktikeluar_id);
+		}
+		$criteria->compare('LOWER(tglkaskeluar)',strtolower($this->tglkaskeluar),true);
+		$criteria->compare('LOWER(nokaskeluar)',strtolower($this->nokaskeluar),true);
+		if(!empty($id)){
+			$criteria->addCondition('pengeluaranumum_id = '.$id);
+		}
+		$criteria->compare('LOWER(tglpesangon)',strtolower($this->tglpesangon),true);
+		$criteria->compare('LOWER(nopesangon)',strtolower($this->nopesangon),true);
+		if(!empty($this->pegawai_id)){
+			$criteria->addCondition('pegawai_id = '.$this->pegawai_id);
+		}
+		$criteria->compare('LOWER(pegawai_nip)',strtolower($this->pegawai_nip),true);
+		$criteria->compare('LOWER(pegawai_jenisidentitas)',strtolower($this->pegawai_jenisidentitas),true);
+		$criteria->compare('LOWER(pegawai_noidentitas)',strtolower($this->pegawai_noidentitas),true);
+		$criteria->compare('LOWER(pegawai_gelardepan)',strtolower($this->pegawai_gelardepan),true);
+		$criteria->compare('LOWER(pegawai_nama)',strtolower($this->pegawai_nama),true);
+		$criteria->compare('LOWER(pegawai_gelarbelakang)',strtolower($this->pegawai_gelarbelakang),true);
+		$criteria->compare('LOWER(keterangan)',strtolower($this->keterangan),true);
+		$criteria->compare('totalterima',$this->totalterima);
+		$criteria->compare('totalpajak',$this->totalpajak);
+		$criteria->compare('totalpotongan',$this->totalpotongan);
+		$criteria->compare('penerimaanbersih',$this->penerimaanbersih);
+		$criteria->compare('gajipertahun',$this->gajipertahun);
+		$criteria->compare('biayajabatan',$this->biayajabatan);
+		$criteria->compare('potonganpensiun',$this->potonganpensiun);
+		$criteria->compare('LOWER(kodeptkp)',strtolower($this->kodeptkp),true);
+		$criteria->compare('ptkppertahun',$this->ptkppertahun);
+		$criteria->compare('penerimaanbersihpertahun',$this->penerimaanbersihpertahun);
+		$criteria->compare('pkp',$this->pkp);
+		if(!empty($this->persentasepph21)){
+			$criteria->addCondition('persentasepph21 = '.$this->persentasepph21);
+		}
+		$criteria->compare('pph21pertahun',$this->pph21pertahun);
+		$criteria->compare('pph21perbulan',$this->pph21perbulan);
+		$criteria->compare('volume',$this->volume);
+		$criteria->compare('LOWER(satuanvol)',strtolower($this->satuanvol),true);
+		$criteria->compare('hargasatuan',$this->hargasatuan);
+		$criteria->compare('totalharga',$this->totalharga);
+		$criteria->compare('biayaadministrasi',$this->biayaadministrasi);
+		$criteria->compare('LOWER(keterangankeluar)',strtolower($this->keterangankeluar),true);
+		$criteria->compare('isurainkeluarumum',$this->isurainkeluarumum);
+		$criteria->compare('LOWER(create_time)',strtolower($this->create_time),true);
+		$criteria->compare('LOWER(update_time)',strtolower($this->update_time),true);
+		$criteria->compare('LOWER(create_loginpemakai_id)',strtolower($this->create_loginpemakai_id),true);
+		$criteria->compare('LOWER(update_loginpemakai_id)',strtolower($this->update_loginpemakai_id),true);
+		$criteria->compare('LOWER(create_ruangan)',strtolower($this->create_ruangan),true);
+        
+		$criteria->limit=10;
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+}

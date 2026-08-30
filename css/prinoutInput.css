@@ -1,0 +1,70 @@
+/**
+* Digunakan untuk mengatur/melakukan perapian prinout laporan print, pdf maupun excel
+*
+* @category     Params
+* @author         Muhammad Iqbal Laksana <iqbal.laksana@piindonesia.co.id>
+ * @website      <piindonesia.co.id>
+*/
+
+/**************
+ STYLE CHECKBOX
+**************/
+/**************
+ STYLE CHECKBOX
+**************/
+input[type="checkbox"] {
+	display: none;	
+}
+
+input[type="checkbox"] + label:before {
+	background-color: white ;
+	border: 1px solid #333 ;
+	content: "";
+	display: inline-block ;	
+	height: 7px ;
+	width: 7px ;
+	line-height: 6px ;
+	margin-left: 10px;
+	vertical-align: middle ;
+	text-align: center ;
+}
+
+input[type="checkbox"]:checked + label:before {
+	content: "v";
+	color: black  ;	
+        background-color: #333 ;
+        box-shadow:  inset -200px -200px 0px 200px rgba(0,0,0,1);
+}
+
+
+/*******
+
+RADIO FIELD
+
+********/
+input[type="radio"] {
+	display: none;	
+}
+
+input[type="radio"] + label:before {
+	background-color: white ;
+	border: 1px solid #333 ;
+        /**        border-radius: 100%; **/
+	content: "";
+	display: inline-block ;	
+	height: 7px ;
+	width: 7px ;
+	line-height: 6px ;
+	margin-left: 10px;
+	vertical-align: middle ;
+	text-align: center ;        
+}
+
+input[type="radio"]:checked + label:before {
+	content: "v";
+	color: black  ;	
+        background-color: #333 ;
+        box-shadow:  inset -200px -200px 0px 200px rgba(0,0,0,1);
+/**        border-radius: 100%; **/
+}
+

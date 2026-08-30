@@ -1,0 +1,213 @@
+/* CSS Document */
+body,
+containere,
+headerAntrian,
+contentAntrian,
+footerAntrian {
+    background: #C8C8C8;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+}
+
+#body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 100%;
+    height: 762px;
+    margin: 0 auto;
+    font: Arial, Helvetica, sans-serif;
+    background: #C8C8C8;
+}
+
+#headerAntrian {
+    width: 100%;
+    height: 292px;
+    /*background:url(headerAntrian.jpg) no-repeat;
+	background-size: 100% 100%;
+	color:#FFFFFF;*/
+    font: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+
+#contentAntrian {
+    width: 100%;
+    height: 100%;
+    /*background:url(contentAntrian.jpg);*/
+}
+
+.space {
+    text-align: right;
+    padding-top: 30px;
+}
+
+#but {
+    width: 400px;
+    height: 275px;
+    background: url(pasienbaru.png) no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    margin: 380px -17px 0px 20px;
+    vertical-align: top;
+    font-family: digitalFont;
+    color: red;
+    font-size: 145px;
+    letter-spacing: 7px;
+}
+
+#but:hover {
+    background: url(pasienbaruhover.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#but2 {
+    width: 400px;
+    height: 275px;
+    background: url(pasienlama.png) no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    margin: 380px -1px 0px 20px;
+    vertical-align: top;
+    font-family: digitalFont;
+    color: red;
+    font-size: 145px;
+    letter-spacing: 7px;
+    text-indent: 10px;
+}
+
+#but2:hover {
+    background: url(pasienlamahover.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+#tengah {
+    width: 44px;
+    height: 174px;
+    background: url(tengahpasien.png) no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    vertical-align: top;
+}
+
+.content {
+    padding-top: 34px;
+    margin-top: 90px;
+    text-align: right;
+    width: 1204px;
+    position: absolute;
+    top: 0;
+}
+
+#footerAntrian {
+    float: left;
+    padding: 5px;
+    font-size: 30px;
+    line-height: 1em;
+    color: #000077;
+    width: calc(100% - 200px);
+    height: 40px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, .85);
+}
+
+#footerClock {
+    float: left;
+    padding: 5px 10px;
+    font-size: 30px;
+    line-height: 1em;
+    color: #fff;
+    width: 200px;
+    height: 40px;
+    text-align: right;
+    font-weight: bold;
+    background: #377fb7;
+}
+
+/* untuk catatan dibawah antrian */
+.contentNote {
+    padding-top: 34px;
+    text-align: right;
+    width: 1204px;
+}
+
+#note-antrian {
+    width: 380px;
+    height: auto;
+    margin: 455px -17px 0px 415px;
+    position: absolute;
+    top: 0;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    letter-spacing: 7px;
+    /*    border-style: solid ;
+    border-width: medium ;
+    Box-shadow: 8px 8px 4px #0c0c0c;
+    Background-color:white;*/
+    background: #fff;
+    border-top: 5px solid #505050;
+    /* was just experimenting. gives a nice look and feel: D */
+    ;
+    -webkit-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.20);
+    -moz-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.20);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.20);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: justify;
+}
+
+#note-antrian2 {
+    width: 380px;
+    height: auto;
+    margin: 455px -17px 0px 805px;
+    position: absolute;
+    top: 0;
+    vertical-align: top;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    letter-spacing: 7px;
+    /*    border-style: solid ;
+    border-width: medium ;
+    Box-shadow: 8px 8px 4px #0c0c0c;
+    Background-color:white;*/
+    background: #fff;
+    border-top: 5px solid #505050;
+    /* was just experimenting. gives a nice look and feel: D */
+    ;
+    -webkit-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.20);
+    -moz-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.20);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.20);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: justify;
+}
+
+@font-face {
+    font-family: digitalFont;
+    src: url('../font/digital.ttf');
+    font-style: bold;
+}
+
+.block-footer-antrian {
+    background: transparent;
+    width: 100%;
+    display: table;
+    margin-top: 80px;
+}

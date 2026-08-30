@@ -1,0 +1,26 @@
+[gammu]
+# isikan no port di bawah ini
+port = com10:
+# isikan jenis connection di bawah ini
+connection = at115200
+
+[smsd]
+service = pgsql
+logfile = smsdlog
+debuglevel = 0
+phoneid = 
+commtimeout = 30
+sendtimeout = 30
+PIN = 1234
+
+# -----------------------------
+# Konfigurasi koneksi ke MySQL
+# -----------------------------
+pc = 192.168.1.93
+
+# isikan user untuk akses ke MySQL
+user = postgres
+# isikan password user untuk akses ke MySQL
+password = postgres
+# isikan nama database untuk Gammu
+database = sisold

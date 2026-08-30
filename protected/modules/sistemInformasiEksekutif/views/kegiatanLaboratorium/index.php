@@ -1,0 +1,23 @@
+<?php
+$this->breadcrumbs = array(
+    'Informasi Rumah Sakit Kegiatan Laboratorium'
+);
+?>
+<div class="panel panel-gradient">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="entypo-newspaper"></i>
+            <?php
+            if (Yii::app()->controller->module->id == 'laboratorium') {
+                echo "Laporan <b>Kegiatan Laboratorium</b>";
+            } else {
+                echo "Informasi Rumah Sakit <b>Kegiatan Laboratorium</b>";
+            }
+            ?>
+        </div>
+    </div>
+    <div class="panel-body" style="padding: 5px;">
+        <iframe src="" id="iframe_dashboard" width="100%" height="100%" onresize="javascript:resizeIframe(this);" onload="javascript:resizeIframe(this);"></iframe>
+        <?php echo $this->renderPartial($this->path_view . '_jsFunctions'); ?>
+    </div>
+</div>

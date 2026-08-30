@@ -1,0 +1,10 @@
+# .dockerignore
+
+# Abaikan folder cache Nginx dari build context
+nginx-cache
+
+# Anda juga bisa menambahkan folder lain yang tidak perlu ada di dalam image
+# .git
+# .vscode
+# node_modules
+# README.md

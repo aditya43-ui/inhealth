@@ -1,0 +1,77 @@
+<?php
+
+class KUPenerimaanUmumT extends PenerimaanumumT
+{
+	public $isuraiantransaksi;
+        public $nomor, $jenispenerimaan_nama;
+        public $persenpph_22, $persenpph_23, $persenppn, $persenpph_21;
+        /**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return PenerimaanumumT the static model class
+	 */
+       
+        
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
+        /**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function searchInformasi()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+                $criteria->with = array('buktibayar', 'jenispenerimaan');
+		$criteria->addCondition('buktibayar.returpenerimaanumum_id IS NULL');
+		$criteria->addBetweenCondition('DATE(tglpenerimaan)', $this->tgl_awal, $this->tgl_akhir);
+		if(!empty($this->penerimaanumum_id)){
+			$criteria->addCondition("penerimaanumum_id = ".$this->penerimaanumum_id);			
+		}
+		if(!empty($this->tandabuktibayar_id)){
+			$criteria->addCondition("tandabuktibayar_id = ".$this->tandabuktibayar_id);			
+		}
+		if(!empty($this->ruangan_id)){
+			$criteria->addCondition("ruangan_id = ".$this->ruangan_id);			
+		}
+		
+                if(!empty($this->jenispenerimaan_id)){
+			$criteria->addCondition("jenispenerimaan_id = ".$this->jenispenerimaan_id);			
+		}
+                $criteria->compare('LOWER(jenispenerimaan.jenispenerimaan_nama)',strtolower($this->jenispenerimaan_nama),true);
+                
+		if(!empty($this->penjamin_id)){
+			$criteria->addCondition("penjamin_id = ".$this->penjamin_id);			
+		}
+		if(!empty($this->shift_id)){
+			$criteria->addInCondition('t.shift_id', $this->shift_id);
+		}
+		if(!empty($this->pegawai_id)){
+			// echo $this->pegawai_id;die;
+			$criteria->addCondition("pegawai_id = ".$this->pegawai_id);			
+		}
+		$criteria->compare('LOWER(nopenerimaan)',strtolower($this->nopenerimaan),true);
+		$criteria->compare('LOWER(kelompoktransaksi)',strtolower($this->kelompoktransaksi),true);
+		$criteria->compare('volume',$this->volume);
+		$criteria->compare('LOWER(satuanvol)',strtolower($this->satuanvol),true);
+		$criteria->compare('hargasatuan',$this->hargasatuan);
+		$criteria->compare('totalharga',$this->totalharga);
+		$criteria->compare('LOWER(keterangan_penerimaan)',strtolower($this->keterangan_penerimaan),true);
+		$criteria->compare('LOWER(namapenandatangan)',strtolower($this->namapenandatangan),true);
+		$criteria->compare('LOWER(nippenandatangan)',strtolower($this->nippenandatangan),true);
+		$criteria->compare('LOWER(jabatanpenandatangan)',strtolower($this->jabatanpenandatangan),true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+	public function getShiftItems(){
+		$modShift = ShiftM::model()->findAllByAttributes(array('shift_aktif'=>true), array('order'=>'shift_jamawal'));
+		return $modShift;
+	}
+}

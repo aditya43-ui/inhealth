@@ -1,0 +1,33 @@
+@media screen and (max-width:1000px){
+    div.kepala{display:none;}
+    .span-25{width:100%;}
+    #content.span-25{width:100%;}
+    .hilangkan{display:none;}
+    fieldset#fieldsetPasien table{width:100%;}
+    .container{width:100%;!important}
+    #page{width:500px;}
+    .form-actions{width:400px;}
+    .ui-dialog{width:100%;}
+    #controlNoRekamMedik{display:none;}
+    #clock{margin-right:20px;}
+    .navbar-link, .blocking, .container .nav.pull-right{display:none};
+    .navbar-inner.container{width:100%;};
+    .navbar.navbar-static .navbar-inner, .container{width:100%;}
+    .span12, .container{width:100%;}
+    .form-horizontal .control-label{font-size:1.625em;!important}
+    h1{font-size:20px;!important}
+}
+
+@media screen and (max-width:600px){
+    div.kepala{display:none;}
+    .navbar.navbar-static{display:none;}
+    .span-25{width:100%;}
+    #content.span-25{width:100%;}
+    .hilangkan{display:none;}
+    fieldset#fieldsetPasien table{width:100%;}
+    .container{width:100%;}
+    #page{width:500px;}
+    .form-actions{width:400px;}
+    .ui-dialog{width:100%;}
+    #controlNoRekamMedik{display:none;}
+}

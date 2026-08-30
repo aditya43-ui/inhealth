@@ -1,0 +1,16 @@
+{
+  "name": "socketio-server",
+  "version": "1.0.0",
+  "description": "Node.js Socket.IO server for healthcare app",
+  "main": "index_https.js",
+  "scripts": {
+    "start": "node index_https.js"
+  },
+  "dependencies": {
+    "express": "^4.11.0",
+    "socket.io": "^1.0.6"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

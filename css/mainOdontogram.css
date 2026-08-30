@@ -1,0 +1,204 @@
+#icon-odontogram
+{   
+    z-index: 9999;           
+}
+
+
+
+
+
+
+
+
+.belum-erupsi{background:none!important;text-align:center!important;vertical-align:middle!important;color:#00688B;}
+.erupsi-sebagian{background:none!important;text-align:center!important;vertical-align:middle!important;color:#0000FF;}
+
+
+
+.non{
+    background:none !important;
+    text-align:center!important;
+    vertical-align:middle!important;
+    color:#333;    
+}
+
+.gigi-hilang{
+    background:none!important;
+    text-align:center!important;
+    vertical-align:middle!important;
+    color:#FF0000;    
+}
+
+.anomali-bentuk{
+    background:none!important;
+    text-align:center!important;
+    vertical-align:middle!important;
+    color:#006600;   
+}
+
+.fracture{
+    background:none!important;
+    text-align:center!important;
+    vertical-align:middle!important;
+    color:#333;   
+}
+
+
+
+.tambalan-logam{
+    background:#FF34B3!important;
+    width:20px;    
+}
+
+.tambalan-nonlogam{
+    background:#ADD8E6!important;
+    width:20px;    
+}
+
+.mahkota-logam{
+    background:#00FF00!important;
+    width:20px;    
+}
+
+.mahkota-nonlogam{
+    background:#00FEFF!important;
+    width:20px;    
+}
+
+.karies{
+    background:url('karies.png')  no-repeat  center;
+    width:20px;
+}
+
+.jembatan{
+    border:1px solid #308014 !important;    
+    width:20px !important;
+    margin-top: 10px;
+}
+
+.gigi-tiruanlepas{
+    border:1px solid #FFFF00!important;
+    width:20px !important;
+    margin-top: 10px;
+}
+
+.rawat-akar{
+    background:url('saluranakar.png') no-repeat  center;    
+    width:20px;            
+}
+
+.sisa-akar{
+    background:url('sisaakar.png') no-repeat  center;    
+    width:20px;            
+}
+
+.non-vital{
+    background:url('nonvital.png') no-repeat  center;    
+    width:30px;             
+}
+
+.amalgam-nonvital{
+    background:url('tamb_amalgam.png') no-repeat  center;
+    width:20px;     
+}
+
+.metalcrown-vital{
+    border: 2px solid #333;
+    width:20px;   
+}
+
+.metalcrown_nonvital{
+    background:url('metalcrown_nonvital.png') no-repeat  center;
+    width:20px;     
+}
+
+.gigihilang{
+    background:url('gigihilang.png') no-repeat  center;
+    width:20px;     
+}
+
+.porcelainvital{
+    background:url('porcelainvital.png') no-repeat  center;
+    width:30px;  
+}
+
+.porcelainnonvital{
+    background:url('porcelainnonvital.png') no-repeat  center;
+    width:30px;  
+}
+
+.btn-default.btn-icon i{
+    background-color: white !important; 
+    border: 1px solid #dce6f7;
+}
+
+.tambalan-pit{
+    background:#bc8443 !important;
+    width:20px;    
+}
+
+
+.tambalan-composite{
+    background:green !important;
+    width:20px;    
+}
+
+.tambalan-amalgam{
+    background:#333 !important;
+    width:20px;    
+}
+
+.implantporcelain{
+    background:url('implant2.png') no-repeat  center;
+    width:30px;      
+}
+
+.partialdenture{
+    background:url('frd.png') no-repeat  center;
+    width:30px;      
+}
+
+.fulldenture{
+    background:url('fld.png') no-repeat  center;
+    width:30px;      
+}
+
+.migrasikiri{
+    background:url('migrasikiri.png') no-repeat  center;
+    width:30px;      
+}
+
+.migrasikanan{
+    background:url('migrasikanan.png') no-repeat  center;
+    width:30px;      
+}
+
+.rotasikiri{
+    background:url('rotasikiri.png') no-repeat  center;
+    width:30px;      
+}
+
+.rotasikanan{
+    background:url('rotasikanan.png') no-repeat  center;
+    width:30px;      
+}
+
+.bridgekiri{
+    background:url('bridgekiri.png') no-repeat  center;
+    width:30px;      
+}
+
+.bridgekanan{
+    background:url('bridgekanan.png') no-repeat  center;
+    width:30px;      
+}
+
+.bridgetengah{
+    background:url('bridgetengahV2.png') no-repeat  center;
+    width:30px;      
+}
+
+.arsiran{
+    background:url('arsiran32x32hitam.png') no-repeat  center;
+    width:30px;      
+}

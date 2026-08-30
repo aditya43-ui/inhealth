@@ -1,0 +1,11 @@
+{
+    "config": {
+        "bin-dir": "bin",
+        "optimize-autoloader": true
+    },
+    "require": {
+        "squizlabs/php_codesniffer":"*",
+        "mpdf/mpdf": "dev-php8-support",
+        "nullpunkt/lz-string-php": "^1.3"
+    }
+}

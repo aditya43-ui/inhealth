@@ -1,0 +1,52 @@
+/**
+	CSS For Infinite Corousel in Module KIOSK
+**/
+
+#carousel-kiosk {
+	margin: 0 auto;
+	width: 600px;
+	height: 390px;
+	padding: 0;
+	overflow: scroll;
+	border: 2px solid #999;
+}
+#carousel-kiosk ul {
+	list-style: none;
+	width: 1500px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#carousel-kiosk li {
+	display: inline;
+	float: left;
+}
+#carousel-fasilitas {
+	margin: 0 auto;
+	width: 900px;
+	height: 390px;
+	padding: 0;
+	overflow: scroll;
+	border: 2px solid #999;
+}
+#carousel-fasilitas ul {
+	list-style: none;
+	width: 1500px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#carousel-fasilitas li {
+	display: inline;
+	float: left;
+}
+
+.textholder {
+	text-align: left;
+	font-size: small;
+	color: #000000;
+	padding: 6px;
+	-moz-border-radius: 6px 6px 0 0;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+}

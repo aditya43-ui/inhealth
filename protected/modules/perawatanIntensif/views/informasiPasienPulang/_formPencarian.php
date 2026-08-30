@@ -1,0 +1,138 @@
+<?php
+$form = $this->beginWidget('ext.bootstrap.widgets.BootActiveForm', array(
+    'action' => Yii::app()->createUrl($this->route),
+    'method' => 'get',
+    'id' => 'daftarPasienPulang-form',
+    'type' => 'horizontal',
+    'focus' => '#' . CHtml::activeId($modPasienYangPulang, 'no_pendaftaran'),
+    'htmlOptions' => array('enctype' => 'multipart/form-data', 'onKeyPress' => 'return disableKeyPress(event)'),
+
+)); ?>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="entypo-search"></i> Pencarian
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="control-group">
+                    <label for="namaPasien" class="control-label">
+                        <?php 
+                            // $modPasienYangPulang->tgl_awal = MyFormatter::formatDateTimeForUser($modPasienYangPulang->tgl_awal); 
+                            $modPasienYangPulang->tgl_awal = date('d M Y',strtotime($modPasienYangPulang->tgl_awal)); 
+                        ?>
+                        <?php // $modPasienYangPulang->ceklis = false; 
+                        ?>
+                        <?php echo CHtml::activecheckBox($modPasienYangPulang, 'ceklis', array('uncheckValue' => 0, 'onClick' => 'cekTanggal()', 'rel' => 'tooltip', 'data-original-title' => 'Cek untuk pencarian berdasarkan tanggal')); ?>
+                        Tanggal Pulang
+                    </label>
+                    <div class="controls">
+                        <?php
+                        $this->widget('MyDateTimePicker', array(
+                            'model' => $modPasienYangPulang,
+                            'attribute' => 'tgl_awal',
+                            'mode' => 'date',
+                            'options' => array(
+                                'dateFormat' => Params::DATE_FORMAT,
+                                'maxDate' => 'd',
+                            ),
+                            'htmlOptions' => array('readonly' => true, 'class' => 'span2 dtPicker3'),
+                        )); ?>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="namaPasien" class="control-label">
+                        Sampai dengan
+                    </label>
+                    <div class="controls">
+                        <?php 
+                            // $modPasienYangPulang->tgl_akhir = MyFormatter::formatDateTimeForUser($modPasienYangPulang->tgl_akhir); 
+                            $modPasienYangPulang->tgl_akhir = date('d M Y',strtotime($modPasienYangPulang->tgl_akhir)); 
+                        ?>
+                        <?php $this->widget('MyDateTimePicker', array(
+                            'model' => $modPasienYangPulang,
+                            'attribute' => 'tgl_akhir',
+                            'mode' => 'date',
+                            'options' => array(
+                                'dateFormat' => Params::DATE_FORMAT,
+                                'maxDate' => 'd',
+                            ),
+                            'htmlOptions' => array('readonly' => true, 'class' => 'span2 dtPicker3'),
+                        )); ?>
+                    </div>
+                </div>
+                <?php echo $form->textFieldRow($modPasienYangPulang, 'no_pendaftaran', array('placeholder' => 'No. Pendaftaran', 'class' => 'span4', 'onkeypress' => "return $(this).focusNextInputField(event)", 'maxlength' => 50)); ?>
+                <?php echo $form->textFieldRow($modPasienYangPulang, 'nama_pasien', array('placeholder' => 'Nama Pasien', 'class' => 'span4', 'onkeypress' => "return $(this).focusNextInputField(event)", 'maxlength' => 50)); ?>
+                <?php echo $form->textFieldRow($modPasienYangPulang, 'nama_bin', array('placeholder' => 'Alias / Nama Panggilan', 'class' => 'span4', 'onkeypress' => "return $(this).focusNextInputField(event)", 'maxlength' => 50)); ?>
+            </div>
+
+            <div class="col-sm-6">
+                <?php echo $form->textFieldRow($modPasienYangPulang, 'no_rekam_medik', array('placeholder' => 'No. Rekam Medik', 'class' => 'span4', 'onkeypress' => "return $(this).focusNextInputField(event)", 'maxlength' => 50)); ?>
+                <?php echo $form->textFieldRow($modPasienYangPulang, 'keterangan_kamar', array('placeholder' => 'Status Kamar', 'class' => 'span4', 'onkeypress' => "return $(this).focusNextInputField(event)", 'maxlength' => 50)); ?>
+
+                <div class="control-group">
+                    <label for="namaPasien" class="control-label"></label>
+                    <div class="controls">
+                        <?php echo CHtml::activecheckBox($modPasienYangPulang, 'is_nursestation', array('uncheckValue' => 0, 'rel' => 'tooltip', 'data-original-title' => 'Cek untuk pencarian berdasarkan nurse station')); ?>
+                        <label for="PIPasienygPulangriV_is_nursestation">Tampilkan berdasarkan Nurse Station</label>
+                    </div>
+                </div>
+                <?php echo $form->dropDownListRow($modPasienYangPulang, 'carabayar_id', CHtml::listData($modPasienYangPulang->getCaraBayarItems(), 'carabayar_id', 'carabayar_nama'), array(
+                    'empty' => '-- Pilih --', 'onkeyup' => "return $(this).focusNextInputField(event)",
+                    'ajax' => array(
+                        'type' => 'POST',
+                        'url' => $this->createUrl('SetDropdownPenjaminPasien', array('encode' => false, 'namaModel' => get_class($modPasienYangPulang))),
+                        'success' => 'function(data){$("#' . CHtml::activeId($modPasienYangPulang, "penjamin_id") . '").html(data); }',
+                    ),
+                    'class' => 'span4',
+                )); ?>
+
+                <?php echo $form->dropDownListRow($modPasienYangPulang, 'penjamin_id', CHtml::listData($modPasienYangPulang->getPenjaminItems($modPasienYangPulang->carabayar_id), 'penjamin_id', 'penjamin_nama'), array('class' => 'span4', 'empty' => '-- Pilih --', 'onkeypress' => "return $(this).focusNextInputField(event)",)); ?>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <?php echo CHtml::htmlButton(
+                Yii::t('mds', '{icon} Search', array('{icon}' => '<i class="entypo-search"></i>')),
+                array('title' => 'Cari', 'class' => 'btn btn-danger', 'type' => 'submit', 'id' => 'btn_simpan')
+            );
+            echo CHtml::hiddenField('pendaftaran_id');
+            echo CHtml::hiddenField('pasien_id');
+
+            ?>
+            <?php echo CHtml::link(
+                Yii::t('mds', '{icon} Reset', array('{icon}' => '<i class="entypo-arrows-ccw"></i>')),
+                Yii::app()->createUrl($this->module->id . '/' . Yii::app()->controller->id . '/' . Yii::app()->controller->action->id . ''),
+                array(
+                    'title' => 'Ulang',
+                    'class' => 'btn btn-default',
+                    'onclick' => 'window.parent.myConfirm("Apakah Anda ingin mengulang ini?","Perhatian!",function(r){if(r) window.location = window.location.href;}); return false;'
+                )
+            ); ?>
+            <?php
+            $content = $this->renderPartial('../tips/informasi', array(), true);
+            $this->widget('UserTips', array('type' => 'admin', 'content' => $content));
+            ?>
+            <?php $this->endWidget(); ?>
+        </div>
+    </div>
+</div>
+
+<script>
+    //document.getElementById('PIPasienygPulangriV_tgl_awal_date').setAttribute("style","display:none;");
+    //document.getElementById('PIPasienygPulangriV_tgl_akhir_date').setAttribute("style","display:none;");
+    function cekTanggal() {
+
+        var checklist = $('#PIPasienygPulangriV_ceklis');
+        var pilih = checklist.attr('checked');
+        if (pilih) {
+            document.getElementById('PIPasienygPulangriV_tgl_awal_date').setAttribute("style", "display:block;");
+            document.getElementById('PIPasienygPulangriV_tgl_akhir_date').setAttribute("style", "display:block;");
+        } else {
+            document.getElementById('PIPasienygPulangriV_tgl_awal_date').setAttribute("style", "display:none;");
+            document.getElementById('PIPasienygPulangriV_tgl_akhir_date').setAttribute("style", "display:none;");
+        }
+    }
+</script>

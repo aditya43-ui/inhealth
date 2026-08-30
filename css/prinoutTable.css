@@ -1,0 +1,122 @@
+/**
+* Digunakan untuk mengatur/melakukan perapian prinout laporan print, pdf maupun excel dan grafik
+*
+* @category     Params
+* @author         Muhammad Iqbal Laksana <iqbal.laksana@piindonesia.co.id>
+ * @website      <piindonesia.co.id>
+*
+*/
+
+.tabel-akun{
+    width:100%;
+    margin-bottom:12px;    
+    color:#333;
+    border-collapse: collapse;
+}
+
+.tabel-akun th,.tabel-akun td{
+    padding-bottom:5px;
+    padding-top:5px;    
+    line-height:12px;        
+    font-size:8pt;
+}
+
+.tabel-akun-2 th,.tabel-akun-2 td{
+    padding-bottom:5px;
+    padding-top:5px;
+    padding-left:2px;
+    padding-right:2px;
+    line-height:12px;        
+    font-size:8pt;
+}
+
+.tabel-akun-2-print th,.tabel-akun-2-print td{
+    padding-bottom:5px;
+    padding-top:5px;
+    padding-left:2px;
+    padding-right:2px;
+    line-height:12px;        
+    font-size:7pt;
+}
+
+
+.tabel-akun th, .tabel-akun td{
+    
+    color:#000;
+}
+.tabel-akun thead:first-child{
+    border-bottom: 1px solid #333;
+    color-style:bold;
+}
+
+thead th{
+    background:none;
+    color:#000;    
+}
+
+.tabel-akun tbody tr:hover td, .tabel-akun tbody tr:hover th {
+    background-color: none;
+    border:none;
+}
+
+.tabel-akun > thead > tr > th {
+        vertical-align: bottom;
+        
+        font-weight: bold;
+        
+        color:#333;
+}
+
+.tabel-akun > thead > tr > th, .tabel-akun > tbody > tr > th, .tabel-akun > tfoot > tr > th, .tabel-akun > thead > tr > td, .tabel-akun > tbody > tr > td, .tabel-akun > tfoot > tr > td {	
+    
+}
+
+.allborder{
+        text-align:left;
+        border:1px solid #333;
+}
+
+.tabel-akun tbody tr:hover td.allborder, .tabel-akun tbody tr:hover th.allborder {
+        border:1px solid #333 !important;
+}
+
+.kiriborder{
+        text-align:right;
+        border-left:1px solid #333;
+}
+
+.tabel-akun tbody tr:hover td.kiriborder, .tabel-akun tbody tr:hover th.kiriborder {
+        border-left:1px solid #333;
+}
+
+.kananborder{
+        text-align:right;
+        border-right:1px solid #333;
+        padding-right:5px;
+}
+
+.tabel-akun tbody tr:hover td.kananborder, .tabel-akun tbody tr:hover th.kananborder {
+        border-right:1px solid #333;
+}
+
+.atasborder{
+        text-align:right;
+        border-top:1px solid #333;
+}
+
+.tabel-akun tbody tr:hover td.atasborder, .tabel-akun tbody tr:hover th.atasborder {
+        border-top:1px solid #333;
+}
+
+.bawahborder{
+        text-align:right;
+        border-bottom:1px solid #333;
+}
+
+.tabel-akun tbody tr:hover td.bawahborder, .tabel-akun tbody tr:hover th.bawahborder {
+        border-bottom:1px solid #333;
+}
+
+.tabel-akun tbody tr:hover td.border-sub, .tabel-akun tbody tr:hover th.border-sub {
+    border-top: 1px solid #333;/**#dee0e2**/
+}

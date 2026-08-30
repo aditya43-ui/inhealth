@@ -1,0 +1,20 @@
+<span class="required"><i>Bagian dengan tanda * harus diisi.</i></span>
+<p>
+<table width="100%" border="0" style="padding :none;">
+  <tr>
+    <td style="width: 20px;">1.</td>
+    <td>Icon <i class="entypo-calendar"></i> untuk menentukan tanggal bulan dan tahun.</td>
+  </tr>
+  <tr>
+	  <td width="10px">2. </td>
+    <td>Gunakan Tombol ini <button class="btn btn-primary"><i class="entypo-check"></i> Simpan</button> untuk menyimpan data.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Gunakan tombol ini <div class="btn btn-danger">
+      <i class="entypo-arrows-ccw"></i>
+      Ulang
+      </div> berfungsi untuk mengulang kembali inputan.</td>
+  </tr>
+</table>
+</p>

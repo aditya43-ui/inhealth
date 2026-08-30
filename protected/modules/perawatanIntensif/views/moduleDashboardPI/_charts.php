@@ -1,0 +1,144 @@
+<style>
+    /*	.panel-heading{
+		background: none repeat scroll 0 0 #428bca !important;
+		color : #eee !important;
+	}*/
+</style>
+<div class="panel panel-default" id="charts_env">
+    <div class="panel-heading">
+        <div class="panel-title with-tabs">
+            <i class="entypo-users"></i> Pasien Admisi Bulan Ini
+        </div>
+        <div class="panel-options">
+            <ul class="nav nav-tabs">
+                <li class=""><a href="#area-chart" data-toggle="tab">Area Chart</a></li>
+                <li class="active"><a href="#line-chart" data-toggle="tab">Line Chart</a></li>
+                <li class=""><a href="#pie-chart" data-toggle="tab">Donut Chart</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="tab-content">
+            <div class="tab-pane" id="area-chart">
+                <div id="area-chart-1" class="morrischart" style="height: 220px;"></div>
+            </div>
+            <div class="tab-pane active" id="line-chart">
+                <div id="line-chart-1" class="morrischart" style="height: 220px;"></div>
+            </div>
+            <div class="tab-pane" id="pie-chart">
+                <div id="donut-chart-1" class="morrischart" style="height: 220px;"></div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-bordered table-condensed table-responsive">
+        <thead>
+            <tr>
+                <th width="50%" class="col-padding-1">
+                    <div class="pull-left">
+                        <div class="h4 no-margin">Rawat Intensif Langsung</div>
+                        <small><?php echo $dataKolom[6]; ?></small>
+                    </div>
+                    <span class="pull-right uniquevisitors">
+                    </span>
+                </th>
+                <th width="50%" class="col-padding-1">
+                    <div class="pull-left">
+                        <div class="h4 no-margin">Rawat Intensif Dari RJ/RD</div>
+                        <small><?php echo $dataKolom[5]; ?></small>
+                    </div>
+                    <span class="pull-right pageviews">
+                    </span>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        // Area Chart
+        var area_chart_1 = $("#area-chart-1");
+        area_chart_1.parent().show();
+        Morris.Area({
+            element: 'area-chart-1',
+            data: [
+                <?php
+                if (count((array)$dataAreaChart) > 0) {
+                    foreach ($dataAreaChart as $i => $chart) { ?> {
+                            "x": "<?php echo date("d", strtotime($chart['tgladmisi'])); ?>",
+                            "y": <?php echo $chart['jumlah']; ?>
+                        },
+                <?php }
+                }
+                ?>
+            ],
+            xkey: 'x',
+            ykeys: ['y'],
+            labels: ['Jumlah'],
+            parseTime: false,
+            lineColors: [getRandomColor()]
+        });
+        area_chart_1.parent().attr('style', '');
+        // Line Chart
+        Morris.Line({
+            element: 'line-chart-1',
+            data: [
+                <?php
+                if (count((array)$dataLineChart) > 0) {
+                    foreach ($dataLineChart as $i => $chart) { ?> {
+                            x: "<?php echo date("d", strtotime($chart['tglpendaftaran'])); ?>",
+                            y_1: <?php echo isset($chart['jumlah_1']) ? $chart['jumlah_1'] : 0; ?>,
+                            y_2: <?php echo isset($chart['jumlah_2']) ? $chart['jumlah_2'] : 0; ?>,
+                            y_3: <?php echo isset($chart['jumlah_3']) ? $chart['jumlah_3'] : 0; ?>,
+                            y_4: <?php echo isset($chart['jumlah_4']) ? $chart['jumlah_4'] : 0; ?>
+                        },
+                <?php }
+                }
+                ?>
+            ],
+            xkey: 'x',
+            ykeys: ['y_1', 'y_2', 'y_3', 'y_4'],
+            labels: ['Pengunjung Baru', 'Pengunjung Lama', 'Kunjungan Baru', 'Kunjungan Lama'],
+            parseTime: false,
+            lineColors: [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
+        });
+        // Donut Chart
+        var donut_chart_1 = $("#donut-chart-1");
+        donut_chart_1.parent().show();
+        var donut_chart = Morris.Donut({
+            element: 'donut-chart-1',
+            data: [
+                <?php
+                if (count((array)$dataDonutChart) > 0) {
+                    foreach ($dataDonutChart as $i => $chart) { ?> {
+                            label: "<?php echo $chart['kelaspelayanan_nama']; ?>",
+                            value: <?php echo $chart['jumlah']; ?>
+                        },
+                <?php }
+                } ?>
+            ],
+            colors: [
+                <?php foreach ($dataDonutChart as $i => $chart) { ?>
+                    getRandomColor(),
+                <?php } ?>
+            ]
+        });
+        donut_chart_1.parent().attr('style', '');
+    });
+
+    function getRandomColor() {
+        var flat_colors = [
+            '#8788fd', '#55ce63',
+            '#f7e05a', '#f62d51',
+            '#997ad3', '#55ce63',
+            '#f7e05a', '#f62d51',
+            '#bdc3c7', '#ebebfd',
+            '#1abc9c', '#2ecc71',
+            '#3498db', '#9b59b6',
+            '#34495e', '#f1c40f',
+            '#e67e22', '#e74c3c',
+        ];
+        var index = Math.floor((Math.random() * 10));
+        var color = flat_colors[index];
+        return color;
+    }
+</script>

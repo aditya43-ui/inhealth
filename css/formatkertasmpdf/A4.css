@@ -1,0 +1,37 @@
+html, body {
+
+    font-family: Calibri !important;
+
+}
+
+
+.footer .alamatfooter{
+    font-size:10pt !important;
+    font-family: Calibri !important;
+    color:black !important;
+    width:75%;
+    text-align:left;
+}
+.footer .mottofooter {
+    font-size:11pt !important;
+    font-family:Mistral !important;
+    color:#00adef !important;
+    width:25%;
+    text-align:right;
+
+}
+.footer table{
+    width:100%;
+}
+.content,.content DIV,.content TABLE,.content TBODY,.content TFOOT,.content TR,.content TH,.content TD,.content P{
+    font-size:11pt !important;
+    font-family: Calibri !important;
+    color:black !important;
+}
+.content .judulcontent{
+    font-size:12pt !important;
+    font-family: Calibri !important;
+    color:black !important;
+    text-align:center !important;
+    font-weight:bold;
+}

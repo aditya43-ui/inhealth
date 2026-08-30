@@ -1,0 +1,90 @@
+<?php
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/Chart.js', CClientScript::POS_END);
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/chartjs-plugin/annotation/chartjs-plugin-annotation.js', CClientScript::POS_END);
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/chartjs-plugin/labels/chartjs-plugin-labels.js', CClientScript::POS_END);
+
+$this->breadcrumbs=array(
+    'Laporan Perizinan Peralatan dan Mesin'    
+);
+
+
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+        
+	$('#Grafik').attr('src','').css('height','0px');
+	$('#tableLaporan').addClass('animation-loading');
+	$.fn.yiiGridView.update('tableLaporan', {
+		data: $(this).serialize()
+	});        
+        cariData();
+	return false;
+});
+");
+
+
+?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-gradient">
+            <div class="panel-heading">
+                <div class="panel-title"><i class="glyphicon glyphicon-file"></i> Laporan <strong>Perizinan Peralatan dan Mesin</strong></div>
+            </div>
+            <div class="panel-body">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title"><i class="entypo-search"></i> Pencarian</div>
+                    </div>
+                    <div class="panel-body search-form">
+						<!--fieldset class="box search-form"-->
+							<?php $this->renderPartial($this->path_view.'perizinanPeralatanMesin._search',array(
+								'model'=>$model,
+							)); ?>
+						<!--/fieldset--><!-- search-form --> 
+
+                    </div>
+                </div>								
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title"><i class="entypo-credit-card"></i> Tabel <strong>Perizinan Peralatan dan Mesin</strong></div>
+                    </div>
+                    <div class="panel-body" style="overflow-x: scroll">
+						<div class="block-tabel"> 
+							<?php $this->renderPartial($this->path_view.'perizinanPeralatanMesin.grid._table', array('model'=>$model)); ?>
+						</div>
+                    </div>
+                </div>								
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title"><i class="fas fa-chart-bar"></i> Grafik</div>
+                    </div>
+                    <div class="panel-body">
+                        <?= $this->renderPartial($this->path_view.'rekapitulasiPemerliharaanAset._tab',[],true); ?>
+                        <?= $this->renderPartial($this->path_view.'rekapitulasiPemerliharaanAset._grafik',['model'=>$model],true); ?>
+                    </div>
+                </div>								
+                <?php 
+
+                $controller = Yii::app()->controller->id; //mengambil Controller yang sedang dipakai
+                $module = Yii::app()->controller->module->id; //mengambil Module yang sedang dipakai
+                $urlPrint=  Yii::app()->createAbsoluteUrl($module.'/'.$controller.'/printPerizinanPeralatanDanMesin');
+                $this->renderPartial($this->path_view.'_footerGrafik', array('urlPrint'=>$urlPrint, 'url'=>''));?>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $this->renderPartial($this->path_view.'perizinanPeralatanMesin/grid/_gedung',[],true) ?>
+<?= $this->renderPartial($this->path_view.'perizinanPeralatanMesin/grid/_lokasi',[],true) ?>
+<?= $this->renderPartial($this->path_view.'perizinanPeralatanMesin/grid/_ruangan',[],true) ?>
+<?= $this->renderPartial($this->path_view.'perizinanPeralatanMesin/_jsFunction',['model'=>$model],true) ?>
+
+<script>
+    setTimeout(function(){
+            
+        cariData();
+        
+    },500);            
+</script>

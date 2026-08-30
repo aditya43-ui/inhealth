@@ -1,0 +1,254 @@
+/* CSS Document */
+body,
+container,
+tengah,
+kiri,
+kanan,
+header,
+antrian,
+footerAntrian {
+    background-color: transparent;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: transparent;
+}
+
+#tengah {
+    position: relative;
+    width: 100%;
+    /*background-image: url(images/bg_tengah.gif);*/
+}
+
+/*isi*/
+#kiri {
+    float: left;
+    width: 760px;
+    height: 815px;
+    /*background-color: #000000;*/
+}
+
+#content_kiri_atas {
+    margin-top: 100px;
+    float: left;
+    width: 822px;
+    height: 303px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_atas.jpg);*/
+}
+
+#content_kiri_bawah {
+    float: left;
+    width: 627px;
+    height: 403px;
+    margin: 92px 0 0 0px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_bawah.jpg);*/
+}
+
+#kanan {
+    float: left;
+    width: 743px;
+    height: 700px;
+    /*background-color: #000000;*/
+}
+
+#content_kanan_atas {
+    margin-top: 115px;
+    float: left;
+    width: 71%;
+    height: 327px;
+    margin: 109px 0 0 60px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_atas.jpg);*/
+}
+
+#content_kanan_bawah {
+    float: left;
+    width: 71%;
+    height: 287px;
+    margin: 28px 0 0 60px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_bawah.jpg);*/
+}
+
+#content_kananatas_a {
+    float: left;
+    width: 207px;
+    height: 287px;
+    margin: -497px 0 0 275px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_bawah.jpg);*/
+}
+
+#content_kananatas_b {
+    float: left;
+    width: 395px;
+    height: 287px;
+    margin: -497px 0 0 -4px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_bawah.jpg);*/
+}
+
+#content_kananbawah_a {
+    float: left;
+    width: 204px;
+    height: 287px;
+    margin: -57px 0 0 279px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_bawah.jpg);*/
+}
+
+#content_kananbawah_b {
+    float: left;
+    width: 395px;
+    height: 287px;
+    margin: -287px 0 0 -1px;
+    /*background:white;*/
+    /*  background-image:url(content_kiri_bawah.jpg);*/
+}
+
+#center {
+    float: left;
+    width: 14px;
+    height: 757px;
+    /*background-image: url(center.jpg);*/
+}
+
+#kanan {
+    position: relative;
+    width: 656px;
+    /*background-color: #ffffff;*/
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    /*background:url(headerAntrian2.jpg) no-repeat;*/
+    background-size: 100% 50%;
+    color: #309C5C;
+    font: Garamond;
+    width: 631px;
+    height: 187px;
+    position: relative;
+    font-size: 14px;
+    padding-top: 3px;
+}
+
+#header2 {
+    /*background-image:url(jamKiosk.jpg);*/
+    width: 656px;
+    height: 82px;
+    position: relative;
+}
+
+.header2 {
+    /*color:#ffffff;*/
+    font-size: 20px;
+    padding: 40px 0 0 90px;
+}
+
+#antrian {
+    /*background-image:url(contentKiosk.jpg);*/
+    margin-top: 35px;
+    width: 656px;
+    height: 450px;
+    position: relative;
+}
+
+#footerAntrian {
+    width: 100%;
+    height: 80px;
+    font-family: garamond;
+    font-size: 28px;
+    color: #D6E6AA;
+    float: left;
+    /*background-image:url(footerkoisk.jpg);*/
+}
+
+#footerClock {
+    float: left;
+    margin: 19px 0 0 30px;
+    font-family: garamond;
+    font-size: 21px;
+    color: #08266b;
+    height: 38px;
+    width: 11%;
+    vertical-align: middle;
+}
+
+.space {
+    text-align: right;
+    padding-top: 30px;
+}
+
+.content {
+    padding-top: 27px;
+    padding-left: 40px;
+}
+
+#pasien1 {
+    width: 50%;
+    height: 140px;
+    margin: -232px 0 0 110px;
+    float: left;
+    font-family: digitalFont;
+    color: red;
+    font-size: 175px;
+    letter-spacing: 8px;
+}
+
+#pasien2 {
+    width: 40%;
+    height: 140px;
+    margin: 116px 0 0 100px;
+    float: left;
+    font-family: digitalFont;
+    color: red;
+    font-size: 175px;
+    letter-spacing: 8px;
+}
+
+#jumlah {
+    font-size: 17px;
+    letter-spacing: 0;
+    font-family: Arial;
+    color: #08266b;
+    text-shadow: 0 0 5px #FFF;
+    margin: -93px 0 0 -296px;
+}
+
+@font-face {
+    font-family: digitalFont;
+    src: url('../font/digital.ttf');
+    font-style: bold;
+}
+
+#lihat {
+    /*background-image:url(contentKiosk.jpg);*/
+    margin-top: 35px;
+    width: 656px;
+    height: 450px;
+    position: relative;
+}

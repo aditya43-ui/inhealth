@@ -1,0 +1,42 @@
+/* untuk dashboard SIE */
+.dashboard .shortcut-menu {
+    background-color: #fff;
+    border: 1px solid #559dcf;
+    border-radius: 3px 3px 3px 3px;
+    color: #6D6D6D;
+    display: -moz-inline-grid;
+    margin: 5px;
+    padding: 10px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 185px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-menu.disable{
+    background-color: #F5F5F5;
+    border: 1px solid #CDCDCD;
+}
+
+.dashboard .shortcut-menu.disable:hover {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #CDCDCD;
+}
+
+.dashboard .shortcut-menu img {
+    display: block;
+    margin: 0 auto 10px;
+    max-height: 48px;
+    max-width: 48px;
+}
+
+.dashboard .shortcut-menu:hover {
+    background: none repeat scroll 0 0 #FCE8AB;
+    border: 1px solid #559dcf;
+    color: #grey;
+}

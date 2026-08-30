@@ -1,0 +1,268 @@
+
+@media print {    
+    #footer-tanda-tangan, .page-break {
+        page-break-inside:avoid;        
+    }
+    
+    table.grid th, table.grid td {
+        border: 1px solid;   
+        
+    }    
+    
+    html,body{
+        width: 297mm;
+        height: 210mm;        
+    }
+        
+}
+
+@page  
+{ 
+    size: auto;    
+    margin: 5mm 5mm 5mm 5mm;  
+} 
+
+.green{
+    background: #afdc7e  !important;
+    box-shadow:  inset -200px -200px 0px 200px rgba(175, 220, 126) !important;
+}
+
+.top-border{
+    border-top:1px solid #333;
+}
+
+.bot-border{
+    border-bottom: 1px solid #333;
+}
+
+
+.txt-r{
+    text-align: right;
+}
+
+.txt-l{
+    text-align: left;
+}
+
+.txt-c{
+    text-align: center;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+body, table, tr, td, th, div, span{
+    font-family: "arial";    
+}
+
+table.prinout{    
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-bottom: 10px;
+}
+
+table.ln-identitas{
+    line-height: 15px;
+}
+
+table.prinout td, table.prinout th{    
+    padding:5px 5px 5px 5px;   
+    vertical-align: top;
+    word-wrap: break-word !important;
+    white-space: normal;
+    line-height: 14px;
+}
+
+table.prinout-emr td, table.prinout-emr th{    
+    padding:3px 1px 3px 1px;   
+    vertical-align: top;
+    word-wrap: break-word !important;
+    white-space: normal;
+}
+
+table.prinout-emr-pad td, table.prinout-emr-pad th{    
+    padding:5px 10px 5px 10px;  
+    vertical-align: top;
+    word-wrap: break-word !important;
+    white-space: normal;
+}
+
+.w100{
+    width:100%;
+}
+
+table.title-header{
+    margin-top:10px; 
+    margin-bottom:10px;
+}
+
+.prov{
+    font-size:9pt;    
+}
+
+.rs{
+    font-size:14pt;    
+}
+
+.alamat{
+    font-size:9pt;   
+}
+
+.valign-mid{
+    vertical-align: middle;
+}
+
+.identitas-pasien {
+    font-size:8pt;    
+}
+
+
+/** kop surat **/
+        table.kop-header{
+            border-bottom: 3px solid #333;    
+            margin-bottom: 5px;                        
+        }
+        
+        table.kop-header .rs{
+            font-size:20pt;            
+        }
+
+        table.kop-header tr td{
+            padding: 3px;               
+            vertical-align: middle;
+        }
+        
+        .judul{
+            font-size:11pt;
+            font-weight: bold;    
+        }
+
+        .periode{
+            font-size:12pt;
+        }
+        
+        .alias{
+            font-size:12pt;
+        }
+/** kop surat end* */
+
+/** grid border **/
+
+    /**body**/
+    table.grid th, table.grid td {
+        border: 1px solid;   
+        font-size: 9pt;
+    } 
+    
+    table.no-grid tr td table.grid th, 
+    table.no-grid tr td table.grid td {
+        border: 1px solid;   
+    }
+    
+    table.grid tr td table.no-grid tr td table.grid th, 
+    table.grid tr td table.no-grid tr td table.grid td {
+        border: 1px solid;   
+    }
+        
+    /** end body **/
+    
+    /**body**/
+    table.grid tfoot th, table.grid tfoot td {
+        font-weight: bold;        
+    }    
+    /** end body **/
+    
+/** grid border end **/
+
+
+/** no grid border **/
+
+    /**body**/
+    table.no-grid th, table.no-grid td {
+        border: none;           
+    }    
+    
+    table.grid tr td table.no-grid th, 
+    table.grid tr td table.no-grid td {
+        border: none;           
+    }
+    
+    table.grid tr td table.no-grid tr td table.grid tr td table.no-grid th, 
+    table.grid tr td table.no-grid tr td table.grid tr td table.no-grid td {
+        border: none;           
+    }
+       
+    /** end body **/      
+    
+/** no grid border end **/
+
+
+/** ERM PRINOUT **/
+.font-gray td, .font-gray th, .font-gray{
+    color: #b2b2b2;    
+}
+.border-gray{
+    border: 1px solid #b2b2b2;    
+}
+
+.border-top-gray{
+    border-top: 1px solid #b2b2b2;    
+}
+
+.border-bottom-gray{
+    border-bottom: 1px solid #b2b2b2;    
+}
+
+.border-left-gray{
+    border-left: 1px solid #b2b2b2;    
+}
+
+.border-right-gray{
+    border-right: 1px solid #b2b2b2;    
+}
+
+table.prinout-emr{    
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-bottom: 0px;
+}
+
+
+
+
+
+table.prinout-emr tr td, table.prinout-emr tr th,table.prinout-emr tr td b, table.prinout-emr tr th b{
+    font-size:13pt;
+    padding:0px;
+}
+
+table.prinout-emr-pad tr td, table.prinout-emr-pad tr th,table.prinout-emr-pad tr td b, table.prinout-emr-pad tr th b{
+    font-size:13pt;
+    padding:3px;
+}
+
+table.prinout-emr div, table.prinout-emr b{
+    font-size:13pt;
+}
+
+table.prinout-emr div.rs{
+    font-size:18pt;
+}
+
+table.prinout-emr .judul{
+    font-size:18pt;
+}
+
+table.prinout-emr .alias{
+    font-size:14pt;
+}
+
+table.kop-header-pdf{    
+    margin-bottom: 5px;                        
+}
+
+
+
+
+

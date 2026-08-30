@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  # Service untuk Nginx
+  nginx:
+    image: nginx:alpine
+    container_name: inhealtcare-nginx
+    ports:
+      - "9090:80" # Akses aplikasi di http://localhost:9090
+    volumes:
+      - .:/var/www/html # Mount seluruh kode aplikasi ke container
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf # Mount konfigurasi nginx kustom
+      - ./nginx-cache:/var/cache/nginx
+      - php-socket:/var/run/php
+      - php-sessions:/var/lib/php/sessions
+    depends_on:
+      - php
+    networks:
+      - yii-network
+
+  # Service untuk PHP-FPM
+  php:
+    build:
+      context: . # Build dari Dockerfile di direktori saat ini (root proyek)
+      dockerfile: Dockerfile
+    container_name: inhealtcare-php
+    volumes:
+      - .:/var/www/html # Mount seluruh kode aplikasi ke container
+      - php-socket:/var/run/php
+      - php-sessions:/var/lib/php/sessions
+    environment:
+      - PHP_SESSION_SAVE_PATH=/var/lib/php/sessions
+    env_file:
+      # Kredensial database & mode aplikasi. Berkas ini tidak masuk version
+      # control (lihat .gitignore). Salin dari .env.example untuk membuatnya.
+      # Ditandai optional agar stack tetap jalan memakai nilai fallback
+      # di protected/config/db*.php bila .env belum dibuat.
+      - path: .env
+        required: false
+    networks:
+      - yii-network
+
+volumes:
+  php-socket: # Definisikan volume bersama untuk socket
+  php-sessions: # Volume untuk session files
+
+networks:
+  yii-network:
+    driver: bridge

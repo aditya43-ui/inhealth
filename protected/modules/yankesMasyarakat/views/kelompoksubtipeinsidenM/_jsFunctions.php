@@ -1,0 +1,84 @@
+<script>
+    function tambah()
+    {
+
+        var nama = $('#nama').val();
+        var namalain = $('#namalain').val();
+        var tipeinsiden_id = $('#tipeinsiden_id').val();
+        var cek = $('#aktif').prop('checked');
+        if(cek == true){
+            var aktif = 1; 
+        }else{
+            var aktif = 0;
+        }
+        $.post('<?php echo $this->createUrl('getTabel'); ?>', { 
+            nama:nama, 
+            namalain:namalain, 
+            tipeinsiden_id:tipeinsiden_id, 
+            aktif:aktif},
+        function(data){
+            if(data.message == 'sukses'){
+                var cekAda = 0;
+                $('#table-master').find("tbody > tr").each(function(){
+                   var tipeinsiden_id = $(this).find('.tipeinsiden_id').val();
+                   var nama = $(this).find('.nama').val();
+                   if((tipeinsiden_id == data.tipeinsiden_id) && (nama == data.nama)){
+                       cekAda = 1;
+                   }
+                });
+                if(cekAda == 0){
+                    $('#table-master > tbody').append(data.return);
+                    $("#table-master tbody tr:last .float2").maskMoney({"defaultZero":true,"allowZero":true,"decimal":",","thousands":".","precision":2,"symbol":null});
+                    resetForm();
+                    renameInputRow($("#table-master"));
+                }else{
+                    myAlert('Data duplikat');
+                    return false;
+                }
+            }else{
+                myAlert('Data sudah ada');
+                return false;
+            }
+        }, "json");
+    }
+    
+    function renameInputRow(obj_table){
+	var row = 0;	
+	$(obj_table).find("tbody > tr").each(function(){
+		$(this).find('.nourut').val(row+1);
+		$(this).find('span').each(function(){ //element <input>
+			var old_name = $(this).attr("name").replace(/]/g,"");
+			var old_name_arr = old_name.split("[");
+			if(old_name_arr.length == 3){
+				$(this).attr("name","["+row+"]["+old_name_arr[2]+"]");
+			}
+		});
+		$(this).find('input,select,textarea').each(function(){ //element <input>
+			var old_name = $(this).attr("name").replace(/]/g,"");
+			var old_name_arr = old_name.split("[");
+			if(old_name_arr.length == 3){
+				$(this).attr("id",old_name_arr[0]+"_"+row+"_"+old_name_arr[2]);
+				$(this).attr("name",old_name_arr[0]+"["+row+"]["+old_name_arr[2]+"]");
+			}
+		});
+		row++;
+	});	
+    }
+    
+    function hapusTemporary(obj){
+        $(obj).parents('tr').detach();
+        renameInputRow($("#table-master"));
+    }
+    
+    function namaLain(nama)
+    {
+        document.getElementById('namalain').value = nama.value.toUpperCase();
+    }
+    
+    function resetForm(){
+        $('#nama').val("");
+        $('#namalain').val("");
+        $('#tipeinsiden_id').val("");
+        $('#aktif').attr('checked',true);
+    }
+</script>

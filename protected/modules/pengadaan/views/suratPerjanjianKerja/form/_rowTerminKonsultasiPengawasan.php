@@ -1,0 +1,80 @@
+<tr style="height:40px;">
+    <td style="text-align:center; min-width: 75px;"> <label> Termin I </label></td>
+    <td style="text-align:center; min-width: 100px;"> 
+        <?php echo CHtml::activeTextField($modTermin, '[0]jumlah_persen',array('onblur' => 'hitungTerminPengawasan();', 'value' => 95, 'class'=>'span1 integer-decimal jumlah_persen', 'readonly' => false)) ?>
+    </td>
+    <td style="text-align:center; min-width: 200px;"> 
+        <?php echo CHtml::activeTextField($modTermin, '[0]jumlah_harga',array('class'=>'span2 integer-decimal jumlah_harga_pengawasan_95 jumlah_harga_pengawasan', 'readonly' => true)) ?>
+        <?php echo CHtml::activeHiddenField($modTermin, '[0]urutan',array('value' => 1, 'class'=>'span3', 'readonly' => true)) ?>
+        <?php echo CHtml::activeHiddenField($modTermin, '[0]terminke',array('value' => 'I', 'class'=>'span3', 'readonly' => true)) ?>
+
+    </td>
+    <td style="text-align:right; min-width: 200px;">
+        <?php
+        $this->widget('MyDateTimePicker', array(
+            'model' => $modTermin,
+            'attribute' => '[0]termintanggal_awal',
+            'mode' => 'date',
+            'options' => array(
+                'dateFormat' => Params::DATE_FORMAT,
+                'changeYear' => true,
+            ),
+            'htmlOptions' => array('class' => 'span2 tanggal_awal', 'onkeyup' => "return $(this).focusNextInputField(event)", 'readonly' => true),
+        ));
+        ?>
+    </td>
+    <td style="text-align:right; min-width: 200px;">
+        <?php
+        $this->widget('MyDateTimePicker', array(
+            'model' => $modTermin,
+            'attribute' => '[0]termintanggal_akhir',
+            'mode' => 'date',
+            'options' => array(
+                'dateFormat' => Params::DATE_FORMAT,
+                'changeYear' => true,
+            ),
+            'htmlOptions' => array('class' => 'span2 akhir tanggal_akhir', 'onkeyup' => "return $(this).focusNextInputField(event)", 'readonly' => true),
+        ));
+        ?>
+    </td>
+</tr>   
+<tr>
+    <td style="text-align:center; min-width: 75px;"> <label> Termin II </label></td>
+    <td style="text-align:center; min-width: 100px;"> 
+        <?php echo CHtml::activeTextField($modTermin, '[1]jumlah_persen',array('onblur' => 'hitungTerminPengawasan();', 'value' => 5, 'class'=>'span1 integer-decimal jumlah_persen', 'readonly' => false)) ?>
+    </td>
+    </td>
+    <td style="text-align:center; min-width: 200px;"> 
+        <?php echo CHtml::activeTextField($modTermin, '[1]jumlah_harga',array('class'=>'span2 integer-decimal jumlah_harga_pengawasan_5 jumlah_harga_pengawasan', 'readonly' => true)) ?>
+        <?php echo CHtml::activeHiddenField($modTermin, '[1]urutan',array('value' => 2, 'class'=>'span3', 'readonly' => true)) ?>
+        <?php echo CHtml::activeHiddenField($modTermin, '[1]terminke',array('value' => 'II', 'class'=>'span3', 'readonly' => true)) ?>
+    </td>
+    <td style="text-align:right; min-width: 200px;">
+        <?php
+        $this->widget('MyDateTimePicker', array(
+            'model' => $modTermin,
+            'attribute' => '[1]termintanggal_awal',
+            'mode' => 'date',
+            'options' => array(
+                'dateFormat' => Params::DATE_FORMAT,
+                'changeYear' => true,
+            ),
+            'htmlOptions' => array('class' => 'span2 tanggal_awal', 'onkeyup' => "return $(this).focusNextInputField(event)", 'readonly' => true),
+        ));
+        ?>
+    </td>
+    <td style="text-align:right; min-width: 200px;">
+        <?php
+        $this->widget('MyDateTimePicker', array(
+            'model' => $modTermin,
+            'attribute' => '[1]termintanggal_akhir',
+            'mode' => 'date',
+            'options' => array(
+                'dateFormat' => Params::DATE_FORMAT,
+                'changeYear' => true,
+            ),
+            'htmlOptions' => array('class' => 'span2 akhir tanggal_akhir', 'onkeyup' => "return $(this).focusNextInputField(event)", 'readonly' => true),
+        ));
+        ?>
+    </td>
+</tr>   

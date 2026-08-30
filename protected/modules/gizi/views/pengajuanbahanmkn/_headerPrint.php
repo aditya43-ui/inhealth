@@ -1,0 +1,26 @@
+<?php $modProfilRs = ProfilrumahsakitM::model()->findByPk(Params::getDefaultProfilRS()); ?>
+<table width="100%" style = "text-align:center;">
+    <tr>
+        <td width="7%">&nbsp;</td>
+        <td style = "text-align:center;">
+            <img src="<?php echo Params::urlProfilRSDirectory().$modProfilRs->logo_rumahsakit ?> " style="max-width: 80px; width:80px;"/>
+        </td>
+        <td style = "text-align:center;font-size:14px;">
+           
+            <div>
+                <b><?php echo strtoupper($modProfilRs->namakepemilikanrs); ?></b>
+                <!--<b>PEMERINTAH PROPINSI <?php // echo strtoupper($modProfilRs->propinsi->propinsi_nama); ?></b>-->
+            </div>
+            <div>
+                <b><?php echo strtoupper($modProfilRs->nama_rumahsakit); ?></b>
+            </div>
+            <div>
+                <?php echo $modProfilRs->alamatlokasi_rumahsakit; ?>. Telp. <?php echo $modProfilRs->no_telp_profilrs; ?> Fax.  / <?php echo $modProfilRs->no_faksimili." - ".$modProfilRs->kabupaten->kabupaten_nama; ?>
+            </div>
+        </td>
+         <td width="7%">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="4" style="border-bottom: 2px solid #000000">&nbsp;</td>
+    </tr>
+</table>

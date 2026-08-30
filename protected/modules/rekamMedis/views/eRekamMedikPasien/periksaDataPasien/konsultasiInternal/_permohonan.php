@@ -1,0 +1,67 @@
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="glyphicon glyphicon-file"></i> Data <b>Permohonan Konsultasi</b>
+        </div>
+    </div>
+    <div class="panel-body form-horizontal">
+        <div class="col-sm-6">
+            <div class="control-group">
+                <label class="control-label">Tanggal dan Jam Konsul</label>
+                <div class="controls">
+                    <?= CHtml::textField('tglkonsulpoli', $model->tglkonsulpoli, array('class' => '', 'style' => 'text-align:right', 'readonly' => true)) ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Dokter Pengirim</label>
+                <div class="controls">
+                    <?= CHtml::textField('tglkonsulpoli', !empty($model->pegawai_id) ? PegawaiM::model()->findByPk($model->pegawai_id)->namaLengkap : "", array('class' => '', 'style' => 'text-align:left', 'readonly' => true)) ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="control-group">
+                <label class="control-label">Keterangan Klinik</label>
+                <div class="controls">
+                    <?= CHtml::textArea('tglkonsulpoli', $model->catatan_dokter_konsul, array('class' => '', 'style' => 'text-align:left', 'readonly' => true)) ?>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <div class="panel-title">Riwayat Diagnosa</div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Tanggal Diagnosa</th>
+                                <th>Kelompok Diagnosa</th>
+                                <th>Kode</th>
+                                <th>Nama Diagnosa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (count((array)$pasienMorbiditas) > 0) {
+                                foreach ($pasienMorbiditas as $key => $value) {
+                                    echo "
+                                        <tr>
+                                            <td>" . MyFormatter::formatDateTimeForUser($value->tglmorbiditas) . "</td>
+                                            <td>" . $value->kelompokdiagnosa->kelompokdiagnosa_nama . "</td>
+                                            <td>" . $value->diagnosa->diagnosa_kode . "</td>
+                                            <td>" . $value->diagnosa->diagnosa_nama . "</td>
+                                        </tr>
+                                    ";
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

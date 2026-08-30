@@ -1,0 +1,61 @@
+# ==============================================================================
+#  inhealtcare (SIMRS) - .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+#  RAHASIA - jangan pernah di-commit
+# ------------------------------------------------------------------------------
+# File konfigurasi database berisi kredensial produksi.
+# Gunakan .env + .env.example sebagai gantinya.
+/protected/config/db.php
+/protected/config/db_ris.php
+/protected/config/db_remoteserver.php
+
+.env
+.env.*
+!.env.example
+
+# ------------------------------------------------------------------------------
+#  Artefak runtime (dibuat ulang otomatis oleh aplikasi)
+# ------------------------------------------------------------------------------
+# Cache asset yang dipublikasikan Yii
+/assets/*
+!/assets/.gitkeep
+
+# Log, cache, dan state Yii
+/protected/runtime/*
+!/protected/runtime/.gitkeep
+
+# Cache nginx dari container
+/nginx-cache/
+
+# Dependensi composer - dipulihkan lewat `composer install`
+/vendor/
+
+# ------------------------------------------------------------------------------
+#  Data pasien / unggahan pengguna
+# ------------------------------------------------------------------------------
+# Berisi berkas identitas pasien. Bukan bagian dari kode sumber.
+/uploads/*
+!/uploads/.gitkeep
+
+# Berkas hasil generate (laporan excel/pdf yang dibuat aplikasi)
+/data/excel/*/
+/data/pdf/*/
+
+# ------------------------------------------------------------------------------
+#  Berkas sementara sistem operasi & editor
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+*.sublime-workspace
+
+# ------------------------------------------------------------------------------
+#  Log
+# ------------------------------------------------------------------------------
+*.log
+!/protected/runtime/.gitkeep

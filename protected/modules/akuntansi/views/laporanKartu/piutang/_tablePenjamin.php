@@ -1,0 +1,198 @@
+<?php 
+    $i = 1;
+    $totSeluruhD = 0;
+    $totSeluruhK = 0;
+    $totSeluruhS = 0;
+    $tableclass='tabel-akun tabel-akun-2';
+    $colorheader = 'lap-header-akun-2';
+    $bghead = '';
+    foreach ($res as $kd=>$item) : 		
+
+?>
+
+        <table class="<?php echo $tableclass ?> tab_penjamin" width="100%">					
+            <thead>
+                <tr>					
+                    <td style="text-align:center;" colspan="13"><span class="lap-akun-r1" style="font-size:12px;"><b><?php echo $item['nama']; ?> (IDR)</b></span></td>			
+                </tr>
+                <tr  class="<?php echo $colorheader; ?>">
+                    <th align='left' width='40px' style="<?php echo $bghead ?>">Tanggal</th>
+                    <th align='center' width='20px' style='<?php echo $bghead ?>'>Tp</th>
+                    <th align='left'  style='<?php echo $bghead ?>'>No. Referensi</th>
+                    <th align='left' style="<?php echo $bghead ?>">Jatuh Tempo</th>
+                    <th width="10px" style='<?php echo $bghead ?>'></th>
+                    <th align='center' width="70px" style="<?php echo $bghead ?>">Mata Uang</th>
+                    <th width="10px" style="<?php echo $bghead ?>"></th>
+                    <th width="10px" style='<?php echo $bghead ?>'></th>
+                    <th align='right' style="text-align:right;width:100px;<?php echo $bghead ?>">Debit</th>
+                    <th width="1px" style='<?php echo $bghead ?>'></th>
+                    <th align='right' style="text-align:right;width:100px;<?php echo $bghead ?>">Kredit</th>
+                    <th width="1px" style="<?php echo $bghead ?>"></th>
+                    <th align='right' style="text-align:right;width:100px;<?php echo $bghead ?>">Saldo</th>
+                </tr>	
+            </thead>			
+            <tbody>					
+            <?php 
+                $grandDebit = 0;
+                $grandKredit = 0;
+                $grandSaldo = 0;
+                foreach($item['data'] as $grup){
+
+                    $notrans = '';
+                    $totKredit = 0;
+                    $totDebit = 0;
+                    $saldo = 0;
+
+                    $tempo = 1;
+                    foreach ($grup['ref_id'] as $item2): 						
+                    //	$psaldo = MyFormatter::formatNumberForPrint($saldo, 2);
+                    //	if ($saldo < 0){
+                    //		$psaldo = "(".MyFormatter::formatNumberForPrint(abs($saldo), 2).")";
+                    //	}		
+
+                        $deb = '';
+                        $kre = '';
+
+                        if ($item2['debitkredit'] == 'K'){
+                            $kre = $item2['nilaitransaksi'];							
+
+                            $totKredit += $kre;
+
+                            if ($kre < 0){
+                                $kre = "(".MyFormatter::formatNumberForPrint(abs($kre),2).")";
+                            }else{
+                                $kre = MyFormatter::formatNumberForPrint(($kre),2);
+                            }
+
+                        //	$notrans = $item2['notransaksi'];
+
+                        }elseif ($item2['debitkredit'] == 'D'){
+                            $deb = $item2['nilaitransaksi'];
+
+                            $totDebit += $deb;
+
+                            if ($deb < 0){
+                                $deb = "(".MyFormatter::formatNumberForPrint(abs($deb),2).")";
+                            }else{									
+                                $deb = MyFormatter::formatNumberForPrint($deb,2);
+                            }
+
+                            $notrans = $item2['notransaksi'];
+                        }
+
+                ?>
+
+                        <tr>
+                            <td style="color:#333;"><?php echo date('d/m/Y', strtotime($item2["tgltransaksi"])); ?></td>
+                            <td><?php echo isset($item2['tp'])?$item2['tp']:''; ?></td>
+                            <td style="color:#333;"><?php echo ($item2["notransaksi"]); ?></td>
+                            <td style="color:#333;">
+                                <?php 
+                                if ($tempo == 1){
+                                    if (!empty($item2["tgljatuhtempo"])){
+                                        echo date("d/m/Y", strtotime($item2["tgljatuhtempo"]));
+                                    }
+                                } 
+                                ?>
+                            </td>
+                            <th>&nbsp;</th>
+                            <td style="color:#333;text-align: center;">IDR</td>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <td align='right' style="color:#333;"><?php echo $deb; ?></td>
+                            <th>&nbsp;</th>
+                            <td align='right' style="color:#333;"><?php echo $kre; ?></td>
+                            <th>&nbsp;</th>
+                            <td align='right' style="color:#333;"><?php //echo $psaldo; ?></td>
+                        </tr>
+
+                    <?php 
+                    $tempo++;
+                    endforeach; 					
+                        $saldo = $totDebit - $totKredit;
+                        $grandDebit += $totDebit;
+                        $grandKredit += $totKredit;
+
+                        if ($totKredit < 0){
+                            $totKredit = "(".MyFormatter::formatNumberForPrint(abs($totKredit),2).")";
+                        }else{
+                            $totKredit = MyFormatter::formatNumberForPrint(($totKredit),2);
+                        }
+
+                        if ($totDebit < 0){
+                            $totDebit = "(".MyFormatter::formatNumberForPrint(abs($totDebit),2).")";
+                        }else{
+                            $totDebit = MyFormatter::formatNumberForPrint(($totDebit),2);
+                        }
+
+                        if ($saldo < 0){
+                            $saldo = "(".MyFormatter::formatNumberForPrint(abs($saldo),2).")";
+                        }else{
+                            $saldo = MyFormatter::formatNumberForPrint(($saldo),2);
+                        }
+                    ?>
+                        <tr>
+                            <td style="color:#333;">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td style="color:#333;text-align:left;" colspan="2" class="border-sub-abu"><b>Saldo Faktur <?php echo $notrans.' :' ?></b></td>								
+                            <td>&nbsp;</td>
+                            <td style="color:#333;text-align: center;" class="border-sub-abu"><b>IDR</b></td>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td align='right' style="color:#333;" class="border-sub-abu"><b><?php echo $totDebit; ?></b></td>
+                            <td>&nbsp;</td>
+                            <td align='right' style="color:#333;" class="border-sub-abu"><b><?php echo $totKredit; ?></b></td>
+                            <td>&nbsp;</td>
+                            <td align='right' style="color:#333;" class="border-sub-abu"><b><?php echo $saldo; ?></b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="11"></td>
+                        </tr>
+                <?php
+                }	
+                    $grandSaldo = $grandDebit - $grandKredit;
+                    $totSeluruhD += $grandDebit;
+                    $totSeluruhK += $grandKredit;
+                    
+                    $val_debit = $grandDebit;
+                    $val_kredit = $grandKredit;
+                    $val_saldo = $grandSaldo;
+                    
+
+                    if ($grandDebit < 0){
+                        $grandDebit = "(".MyFormatter::formatNumberForPrint(abs($grandDebit),2).")";
+                    }else{
+                        $grandDebit = MyFormatter::formatNumberForPrint(($grandDebit),2);
+                    }
+
+                    if ($grandKredit < 0){
+                        $grandKredit = "(".MyFormatter::formatNumberForPrint(abs($grandKredit),2).")";
+                    }else{
+                        $grandKredit = MyFormatter::formatNumberForPrint(($grandKredit),2);
+                    }
+
+                    if ($grandSaldo < 0){
+                        $grandSaldo = "(".MyFormatter::formatNumberForPrint(abs($grandSaldo),2).")";
+                    }else{
+                        $grandSaldo = MyFormatter::formatNumberForPrint(($grandSaldo),2);
+                    }
+                ?>										
+
+                <tr class="lap-bottom-akun-2">
+                    <td style="text-align:left;" colspan="4"><b>Saldo <?php echo $item['nama'] ?>:</b></td>											
+                    <td>&nbsp;</td>
+                    <td><b>IDR</b></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td style="text-align:right"><b><?php echo $grandDebit; echo CHtml::hiddenField('grand_debit', $val_debit, array('class'=>'grand_debit')); ?></b></td>
+                    <td>&nbsp;</td>
+                    <td style="text-align:right"><b><?php echo $grandKredit; echo CHtml::hiddenField('grand_kredit', $val_kredit, array('class'=>'grand_kredit')); ?></b></td>
+                    <td>&nbsp;</td>
+                    <td style="text-align:right"><b><?php echo $grandSaldo; echo CHtml::hiddenField('grand_saldo', $val_saldo, array('class'=>'grand_saldo')); ?></b></td>
+                </tr>
+            </tbody>
+        </table>			
+<?php 
+    $i++;
+    endforeach; 
+?>	

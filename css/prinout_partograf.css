@@ -1,0 +1,27 @@
+/**
+* Digunakan untuk mengatur/melakukan pengaturan warna, background dan lainnya untuk prinout partograf
+*
+* @category     Params
+* @author         Muhammad Iqbal Laksana <iqbal.laksana@piindonesia.co.id>
+ * @website      <piindonesia.co.id>
+*/
+    .detikk20 {
+        background-image:url('merah.png');
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .detik20sd40 {
+        background-image:url('kuning.png');
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .detikl40 {
+        background-image:url('hijau.png');
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+       
+
+

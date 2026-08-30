@@ -1,0 +1,16 @@
+<?php echo $form->textFieldRow($modPasien, 'alamatemail', array('placeholder' => 'contoh: info@.com', 'class' => 'span3', 'onkeyup' => "return $(this).focusNextInputField(event);", 'maxlength' => 100)); ?>
+
+<?php echo $form->textFieldRow($modPasien, 'nama_ayah', array('placeholder' => 'Nama Ayah Kandung Pasien', 'class' => 'span3 ' . $nama_kapital, 'onkeyup' => "return $(this).focusNextInputField(event);", 'maxlength' => 50)); ?>
+<div class="control-group">
+    <?php echo $form->labelEx($modPasien, 'anakke', array('class' => 'control-label')) ?>
+    <div class="controls">
+        <?php echo $form->textField($modPasien, 'anakke', array('placeholder' => '00', 'class' => 'span1 integer', 'maxlength' => 2, 'onkeypress' => "return $(this).focusNextInputField(event)",)) . ' dari '; ?>
+        <?php echo $form->textField($modPasien, 'jumlah_bersaudara', array('placeholder' => '00', 'class' => 'span1 integer', 'maxlength' => 2, 'onkeypress' => "return $(this).focusNextInputField(event)",)) . ' bersaudara'; ?>
+    </div>
+</div>
+<div class="control-group">
+    <?php echo $form->labelEx($modPasien, 'pendidikan_id', array('class' => 'control-label refreshable')) ?>
+    <div class="controls">
+        <?php echo $form->dropDownList($modPasien, 'pendidikan_id', CHtml::listData($modPasien->getPendidikanItems(), 'pendidikan_id', 'pendidikan_nama'), array('empty' => '-- Pilih --', 'class' => 'span3', 'onkeyup' => "return $(this).focusNextInputField(event)")); ?>
+    </div>
+</div>

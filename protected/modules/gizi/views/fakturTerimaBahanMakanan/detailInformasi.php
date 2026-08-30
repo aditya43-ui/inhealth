@@ -1,0 +1,232 @@
+<style>
+    body {
+        color: black;
+        /*font-size: 10px;*/
+    }
+    
+    .border{
+        border:1px solid #000;
+    }
+    .table thead:first-child{
+        border-top:1px solid #000;        
+    }
+    
+    thead th{
+        background:none;
+        color:#333;
+    }
+    
+    .tab_header, .tab_detail {
+        width:100%;
+    }
+    
+    .tab_detail th {
+        text-align: center;
+    }
+    
+    .tab_detail td, .tab_detail th {
+        border: 1px solid black;
+        padding: 2px;
+    }
+</style>
+<?php  echo $this->renderPartial('application.views.headerReport.headerDefaultNew',array('judulLaporan'=>'RINCIAN FAKTUR PEMBELIAN BAHAN MAKANAN', 'deskripsi'=>"", 'colspan'=>10)); ?>
+<?php // echo $this->renderPartial('application.views.headerReport.headerLaporanTransaksiPDF',array('judulLaporan'=>'',  'periode'=> '', 'colspan'=>10)); ?>
+<table  class="tab_header" style = "box-shadow:none;" style="width:100%;">
+    <tr>
+        <td width="50%">
+            <table  class="tab_header" style = "box-shadow:none;" style="width:100%;">
+                <tr>
+                    <td width="200px">No Permintaan</td>
+                    <td>: <?php echo $modTerima->pengajuanbahanmkn->nopengajuan; ?></td>
+                </tr>
+                <tr>
+                    <td>No Penerimaan</td>
+                    <td>: <?php echo $modTerima->nopenerimaanbahan; ?></td>
+                </tr>
+                <tr>
+                    <td>Tgl. Terima</td>
+                    <td>: <?php echo MyFormatter::formatDateTimeForUser($modTerima->tglterimabahan); ?></td>
+                </tr>
+                <tr>
+                    <td>No Faktur</td>
+                    <td>: <?php echo $modTerima->nofaktur; ?></td>
+                </tr>
+                <tr>
+                    <td>Tgl. Faktur</td>
+                    <td>: <?php echo (isset($modTerima->tglfaktur)? MyFormatter::formatDateTimeForUser($modTerima->tglfaktur):"-"); ?></td>
+                </tr>
+                <tr>
+                    <td>Tgl. Jatuh Tempo</td>
+                    <td>: <?php echo (isset($modTerima->tgljatuhtempo)? MyFormatter::formatDateTimeForUser($modTerima->tgljatuhtempo):"-"); ?></td>
+                </tr>
+                <tr>
+                    <td>Keterangan</td>
+                    <td>: <?php echo $modTerima->keteranganfaktur; ?></td>
+                </tr>
+                <tr>
+                    <td>Jenis PPh</td>
+                    <td>: <?php echo (isset($modTerima->pajak)?$modTerima->pajak->pajak_nama:""); ?></td>
+                </tr>
+            </table>
+        </td>
+        <td width="50%">
+            <table  class="tab_header" style = "box-shadow:none;" style="width:100%;">
+                <tr>
+                    <td width="200px">Total Harga</td>
+                    <td>: Rp <?php echo (!empty($modTerima->totalharganetto)?MyFormatter::formatNumberForPrint($modTerima->totalharganetto,2): 0); ?></td>
+                </tr>
+                <tr>
+                    <td>Total Keringanan</td>
+                    <td>: Rp <?php echo (!empty($modTerima->totaldiscount)?MyFormatter::formatNumberForPrint($modTerima->totaldiscount,2): 0); ?></td>
+                </tr>
+                <tr>
+                    <td>Total PPN</td>
+                    <td>: Rp <?php echo (!empty($modTerima->biayapajak)?MyFormatter::formatNumberForPrint($modTerima->biayapajak,2): 0); ?></td>
+                </tr>
+                <tr>
+                    <td>Total PPh</td>
+                    <td>: Rp <?php echo (!empty($modTerima->biayapajakpph)?MyFormatter::formatNumberForPrint($modTerima->biayapajakpph,2): 0); ?></td>
+                </tr>
+                <tr>
+                    <td>Total Keseluruhan</td>
+                    <td>: Rp <?php echo (!empty($modTerima->totalkeseluruhan)?MyFormatter::formatNumberForPrint($modTerima->totalkeseluruhan,2): 0); ?></td>
+                </tr>
+                <tr>
+                    <td>Jumlah Uang Muka</td>
+                    <td>: Rp <?php echo (!empty($modTerima->jmluangmukabeli)?MyFormatter::formatNumberForPrint($modTerima->jmluangmukabeli,2): 0); ?></td>
+                </tr>
+                <tr>
+                    <td>Total Harga Netto</td>
+                    <td>: Rp <?php echo (!empty($modTerima->totalhutangusaha)?MyFormatter::formatNumberForPrint($modTerima->totalhutangusaha,2): 0); ?></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<br>
+<table class="tab_detail" style = "box-shadow:none;">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Kelompok</th>
+            <th>Nama</th>
+            <th>Jumlah Persediaan</th>
+            <th>Jumlah Terima</th>
+            <th>Tanggal Kedaluwarsa</th>
+            <th>Harga Netto (Rp)</th>
+            <th>Keringanan (%)</th>
+            <th>Keringanan (Rp)</th>
+            <th>PPN (%)</th>
+            <th>PPN (Rp)</th>
+            <th>PPh (%)</th>
+            <th>PPh (Rp)</th>
+            <th>Subtotal (Rp)</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+     $totalSubTotal= 0;
+    $totalnetto = 0;
+    $totalDiskon = 0;
+    $totalPpn = 0;
+    $totalPph = 0;
+    $no=1;
+        foreach($modDetailTerima AS $tampilData):
+            $modBhn = BahanmakananM::model()->findByPk($tampilData->bahanmakanan_id);
+            $jmlHarga = round(($tampilData->qty_terima * $tampilData->harganettobhn),2);
+            $jmlDiskon = round((($jmlHarga * $tampilData->persendiscount)/100),2);
+            $jmlPpn = round(((($jmlHarga - $jmlDiskon) * $tampilData->persenppn)/100),2);
+            $jmlPph = round(((($jmlHarga - $jmlDiskon) * $tampilData->persenpph)/100),2);
+            
+        $subTotal = ($jmlHarga - $jmlDiskon + $jmlPpn - $jmlPph);
+        $totalSubTotal += $subTotal;
+        $totalnetto += $tampilData->harganettobhn;
+        $totalDiskon += $jmlDiskon;
+        $totalPpn += $jmlPpn;
+        $totalPph += $jmlPph;
+        
+        
+        
+    echo "<tr>
+            <td class='border'>".$no."</td>
+            <td class='border'>".$tampilData->bahanmakanan->kelbahanmakanan."</td>   
+            <td class='border'>".$tampilData->bahanmakanan->namabahanmakanan."</td>       
+            <td class='border' style='text-align: right;'>".number_format($modBhn->jmlpersediaan,2,",",".").' '.$tampilData->satuanbahan."</td>   
+            <td class='border' style='text-align: right;'>".number_format($tampilData->qty_terima,2,",",".").' '.$tampilData->satuanbahan."</td>   
+             <td class='border'>".MyFormatter::formatDateTimeForUser($tampilData->bahanmakanan->tglkadaluarsabahan)."</td>   
+            <td class='border' style='text-align: right;'>Rp ".number_format($tampilData->harganettobhn,2,",",".")."</td>   
+            <td class='border' style='text-align: right;'>".number_format($tampilData->persendiscount,2,",",".")."</td>   
+            <td class='border' style='text-align: right;'>Rp ".number_format($jmlDiskon,2,",",".")."</td>   
+            <td class='border' style='text-align: right;'>".number_format($tampilData->persenppn,0,",",".")."</td>   
+            <td class='border' style='text-align: right;'>Rp ".number_format($totalPpn,2,",",".")."</td>   
+            <td class='border' style='text-align: right;'>".number_format($tampilData->persenpph,2,",",".")."</td>   
+            <td class='border' style='text-align: right;'>Rp ".number_format($totalPph,2,",",".")."</td>   
+            <td class='border' style='text-align: right;'>Rp ".  number_format($subTotal,2,",",".")."</td>     
+         </tr>";   
+        $no++;
+        
+        endforeach;
+     
+    ?>
+         <?php
+        echo "<tr>
+            <td class='border' colspan='13' style='text-align:right;'> <b>Total</b></td>
+            <td class='border' style='text-align: right;'>Rp ".  number_format($totalSubTotal,2,",",".")."</td>
+         </tr>";
+        ?>
+   
+    </tbody>
+    
+       
+</table>
+
+ <?php
+//if (isset($_GET['frame'])){
+    
+    //echo CHtml::link(Yii::t('mds','{icon} Excel',array('{icon}'=>'<i class="entypo-doc-text"></i>')),'javascript:void(0);', array('class'=>'btn btn-info', 'onclick'=>"print('EXCEL')")); 
+?>
+    <script type='text/javascript'>
+    /**
+     * print
+     */    
+    function printLagi(caraPrint){
+        terimabahanmakan_id = '<?php echo !empty($modTerima->terimabahanmakan_id) ? $modTerima->terimabahanmakan_id : ''; ?>';
+        window.open('<?php echo $this->createUrl('printDetailPenerimaan'); ?>&id='+terimabahanmakan_id+'&caraPrint='+caraPrint+'&frame=false','printwin','left=100,top=100,width=1000,height=640');
+    }
+    </script>
+<?php
+//}else{ ?>
+    <table class ="table" style = "box-shadow:none;">
+    <tr>
+        <td width="100%" align="left" align="top">
+            <table style="width: 100%; border: none;">
+                <tr>
+                    <td width="35%" align="center">
+                        
+                    </td>
+                    <td width="35%" align="center">
+                        
+                    </td>
+                    <td width="35%" style="text-align:center;">
+                       
+                       <div>Yang Mengetahui</div>
+                        <div style="margin-top:60px;"><?php
+                        $modApprKeu = ApprovalotorisasiM::model()->find();
+
+                        echo isset($modApprKeu->managerkeuangan_id) ? $modApprKeu->managerkeuangan->NamaLengkap : "" ?></div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </table>
+<?php //} 
+if(isset($_GET['caraPrint'])){
+    if ($_GET['caraPrint']!="PDF"){ 
+    echo $this->renderPartial('application.views.headerReport.footerDefaultNew', array());
+   } 
+}
+else {
+    echo CHtml::link(Yii::t('mds', '{icon} Print', array('{icon}'=>'<i class="entypo-print"></i>')), 'javascript:void(0);', array('class'=>'btn btn-info', 'onclick'=>"printLagi('PRINT')"));
+}
+?>

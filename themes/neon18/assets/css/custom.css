@@ -1,0 +1,686 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+body {
+    background-color: white !important;
+}
+
+body .page-container .sidebar-menu #main-menu li.active>a {
+    background-color: #e9e9e9;
+    /*-webkit-box-shadow: inset 0px 0px 10px -5px rgba(16,232,31,1);
+-moz-box-shadow: inset 0px 0px 10px -5px rgba(16,232,31,1);
+box-shadow: inset 0px 0px 10px -5px rgba(16,232,31,1);*/
+}
+
+.ui-widget-header {
+    color: #fff !important;
+    background: #378d7c !important;
+}
+
+.ui-widget-content {
+    border: 1px solid #d3d3d3 !important;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control:-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control::-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control:-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control::-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #4d4d4d;
+}
+
+.sepuluh {
+    width: 100%;
+}
+
+.sembilan {
+    width: 90%;
+}
+
+.delapan {
+    width: 80%;
+}
+
+.tujuh {
+    width: 70%;
+}
+
+.enam {
+    width: 60%;
+}
+
+.lima {
+    width: 50%;
+}
+
+.empat {
+    width: 40%;
+}
+
+.tiga {
+    width: 30%;
+}
+
+.dua {
+    width: 20%;
+}
+
+.satu {
+    width: 10%;
+}
+
+input,
+select {
+    /*display: block;       */
+    height: 31px;
+    padding: 4px 4px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, -moz-box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+textarea {
+    /*display: block;       */
+    padding: 4px 4px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, -moz-box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+input[disabled],
+input[readonly],
+input[disabled] input {
+    cursor: not-allowed;
+    background-color: #eeeeee;
+}
+
+
+
+.form-control2::-webkit-input-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2:-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2::-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2:-ms-input-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2:-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2::-moz-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2:-ms-input-placeholder {
+    color: #4d4d4d;
+}
+
+.form-control2::-webkit-input-placeholder {
+    color: #4d4d4d;
+}
+
+
+
+.help-block {
+    color: #333;
+}
+
+span.required {
+    color: red;
+}
+
+.multi {
+    overflow: visible;
+}
+
+.multi>.accordion-inner {
+    border-top: none;
+}
+
+/*#instruction_button {
+    margin-left: 0px !important;
+    margin-bottom: 0px !important;    
+    margin-top: 0px !important;    
+}*/
+
+.table th {
+    color: #303641 !important;
+}
+
+/* .nav-tabs>li>a:hover {
+    color: white !important;
+} */
+
+.overflow-x {
+    overflow-x: auto;
+}
+
+.informasi-dikirim {
+    color: #b90b0b;
+}
+
+.dropdown.open .dropdown-toggle {
+    color: #333;
+}
+
+/*Perubahan warna untuk icon menjadi putih*/
+
+.table th a.white {
+    color: #fff !important;
+}
+
+/*menambahkan class agar tombol atau link,ketika mouse di hover tidak berubah cursornya*/
+.nohover {
+    cursor: unset;
+}
+
+/*menambahkan class agar tombol atau link,ketika mouse di hover tidak berubah cursornya*/
+.hover {
+    cursor: pointer;
+}
+
+/*menambahkan class agar tombol atau link, textnya berwarna hitam*/
+.txthitam {
+    color: #000000;
+}
+
+/*ukuran font*/
+.font-15px {
+    font-size: 15px;
+}
+
+.font-13px {
+    font-size: 13px;
+}
+
+.font-20px {
+    font-size: 20px;
+}
+
+.font-14px {
+    font-size: 14px;
+}
+
+.tabel-surat {
+    width: 100%;
+}
+
+.tabel-surat>tbody>tr>td {
+    padding-left: 15px;
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+
+.line-words {
+    text-decoration: line-through;
+}
+
+.btn-info.btn-icon i {
+    margin-right: 0px;
+    width: auto;
+}
+
+.btn-warning.btn-icon i {
+    margin-right: 0px;
+    width: auto;
+}
+
+fieldset.box {
+    /*    border: 1px solid #b4e8a8;    */
+}
+
+fieldset.box>.rim {
+    font-size: 14px;
+    padding: 8px 13px;
+    color: #ffffff;
+    background-color: #57a595;
+    pading: 10px;
+}
+
+.no-atas {
+    position: relative;
+    top: -65px
+}
+
+.icon-up {
+    color: #333;
+    font-size: 20px;
+    padding-bottom: 87px;
+    width: 0px;
+    position: relative;
+    left: -6px;
+}
+
+.icon-down {
+    color: #333;
+    font-size: 20px;
+    padding-top: 40px;
+    width: 0px;
+    position: relative;
+    left: -6px;
+}
+
+.triase-merah,
+.table th.triase-merah,
+.table td.triase-merah label span {
+    box-shadow: inset -200px -200px 0px 200px rgba(249, 54, 54, 1);
+    background: #f93636;
+    color: #fff !important;
+    font-size: 12px;
+}
+
+.triase-hijau,
+.table th.triase-hijau,
+.table td.triase-hijau label span {
+    box-shadow: inset -200px -200px 0px 200px rgba(13, 191, 40, 1);
+    background: #0dbf28;
+    color: #fff !important;
+    font-size: 12px;
+}
+
+.triase-kuning,
+.table th.triase-kuning,
+.table td.triase-kuning label span {
+    box-shadow: inset -200px -200px 0px 200px rgba(255, 251, 43, 1);
+    background: #fffb2b;
+    color: #333 !important;
+    font-size: 12px;
+}
+
+.triase-hitam,
+.table th.triase-hitam,
+.table td.triase-hitam label span {
+    background: #333;
+    color: #fff;
+    font-size: 12px;
+}
+
+.nyeri-scala {
+    width: 90%;
+    height: 10px;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    margin: auto;
+}
+
+.nyeri-scala-tengah {
+    width: 60%;
+    height: 10px;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    margin: auto;
+}
+
+.scala-tengah {
+    text-align: center !important;
+    /**    padding-left:60px  !important;
+    padding-right:60px  !important;    **/
+}
+
+.profile-info-sections {
+    padding-top: 30px !important;
+}
+
+.table-striped>tbody>tr:nth-child(2n+1)>sudah.td {
+    background: #00FF00 !important;
+}
+
+.alert .close {
+    position: relative;
+    top: -2px !important;
+    right: -11px;
+    line-height: 18px;
+}
+
+.alert-success {
+    background-color: #bee6de;
+    border: 2px solid #bee6de !important;
+    color: #6b6b6b;
+}
+
+.borderradius {
+    padding: 5px;
+    border: 1px solid #333;
+    border-radius: 30%;
+}
+
+.borderradiusno {
+    margin-left: -17px !important;
+    padding: 5px;
+    border: 1px solid #333;
+    border-radius: 30%;
+}
+
+
+
+/**
+-- digunakan untuk mengenerate header pada footr pada laporan akuntansi #087EA6
+*/
+
+.lap-akun-r1 {
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.lap-akun-r2 {
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.lap-akun-r3 {
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.lap-akun-r4 {
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.lap-akun-r5 {
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.lap-akun-subtotal {
+    color: dodgerblue;
+    /**#0f5f7a**/
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+
+.lap-akun-grandtotal {
+    color: maroon;
+    /**#8C0101**/
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.lap-akun-det {
+    color: #000;
+    font-size: 8pt;
+}
+
+.lap-header-akun {
+    background-color: #edeff2;
+    color: dodgerblue;
+    /**#087EA6**/
+    font-weight: bold;
+    font-size: 8pt;
+
+    box-shadow: inset -200px -200px 0px 200px rgba(237, 239, 242, 1);
+    border: #edeff2 1px solid;
+}
+
+.lap-header-akun td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 2px;
+}
+
+.lap-header-akun-2 {
+    background-color: #edeff2;
+    color: dodgerblue;
+    /**#087EA6**/
+    font-weight: bold;
+    font-size: 8pt;
+
+    box-shadow: inset -200px -200px 0px 200px rgba(237, 239, 242, 1);
+    border: #edeff2 1px solid;
+}
+
+
+.lap-header-akun-2 td {
+    padding: 8px;
+}
+
+.lap-header-akun-2 th {
+    padding: 7px;
+}
+
+.lap-bottom-akun {
+    background-color: #c2c4c6;
+    color: #333;
+    font-weight: bold;
+
+    box-shadow: inset -200px -200px 0px 200px rgba(194, 196, 198, 1);
+    background: #c2c4c6;
+    border: #c2c4c6 1px solid;
+}
+
+.lap-bottom-akun td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 2px;
+}
+
+.lap-bottom-akun-2 {
+    background-color: #c2c4c6;
+    color: #333;
+    font-weight: bold;
+
+    box-shadow: inset -200px -200px 0px 200px rgba(194, 196, 198, 1);
+    background: #c2c4c6;
+    border: #c2c4c6 1px solid;
+}
+
+.lap-bottom-akun-2 td {
+    padding: 4px;
+}
+
+.border-sub {
+    border-top: 1px solid #333;
+    /**#dee0e2**/
+    text-align: right;
+}
+
+.border-sub-abu {
+    border-top: 1px solid #c2c4c6;
+    /**#dee0e2**/
+    text-align: right;
+}
+
+.tabel-akun tbody tr:hover td.border-sub,
+.tabel-akun tbody tr:hover th.border-sub {
+    border-top: 1px solid #333;
+    /**#dee0e2**/
+}
+
+.input-append .add-on-center {
+    width: auto;
+    min-width: 22px;
+    height: 35px;
+    margin-right: -1px;
+    padding: 7px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #999999;
+    text-align: center;
+    text-shadow: 0 1px 0 #ffffff;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 0px 0 0 0px;
+    -moz-border-radius: 0px 3px 3px 0px;
+    border-radius: 0px 3px 3px 0px;
+}
+
+.panel-darkk {
+    border-color: #001F3E;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding-box;
+    border-radius: 3px;
+    background-clip: padding-box;
+}
+
+.group-title {
+    position: relative;
+    top: -10px;
+    left: 15px;
+    color: #001F3E;
+    background: #fff;
+    box-shadow: inset -200px -200px 0px 200px rgba(255, 255, 255, 1) !important;
+    padding: 10px;
+}
+
+select[readonly],
+textarea[readonly] {
+    background: #eeeeee;
+}
+
+select[disabled],
+textarea[disabled] {
+    background: #eeeeee;
+}
+
+/*.navbar-inner{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    max-height:90px;
+    border-top: 4px solid #57a595;
+    
+    
+}*/
+.links-list {
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.page-container.horizontal-menu header.navbar .navbar-nav>li>a {
+
+
+    padding-right: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 8px !important;
+
+}
+
+.page-container.horizontal-menu header.navbar .navbar2>li>a {
+    border-right-color: #d6d6d6 !important;
+
+
+
+
+}
+
+.page-container.horizontal-menu header.navbar .navbar2>li>a>div {
+
+    margin-top: -5px;
+
+
+
+}
+
+/*.navbar-brand{
+    float:none;
+    padding: 5px 5px !important;
+    padding-left:0px !important;
+
+   
+}*/
+.navbar-nav {
+    /*    float:none;*/
+}
+
+.page-container .main-content {
+    padding-top: 30px;
+}
+
+.page-container.horizontal-menu.with-sidebar .sidebar-menu {
+    top: 145px;
+}
+
+.profile-info.dropdown>a {
+    color: #949494;
+}
+
+.setul {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.horizontal-menu #chat {
+    top: 90px;
+}
+
+.notifications.dropdown>#panel_notif>a .badge {
+    position: absolute;
+
+    padding: 2px;
+
+    font-size: 10px;
+
+    right: -5px;
+
+    top: -5px;
+
+    min-width: 17px;
+
+    line-height: 12px
+}

@@ -1,0 +1,535 @@
+/* CSS Document */
+
+/* CSS Document */
+body, container,tengah, kiri,kanan,header, antrian, footerAntrian { background: #ffffff; font-size:100%;font:inherit;vertical-align:baseline;}
+html {margin:0;padding:0;border:0;display:block;}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+#container{
+    width: 1366px;
+	height:768px;
+    position: relative;
+	background: #ffffff;
+	left: 0px;
+}
+
+.dashboard .slider {
+    background-color: #fff;
+    border: 1px solid #559dcf;
+    border-radius: 3px 3px 3px 3px;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    position: absolute;
+    font-size: 1.0em;
+    text-align: center;
+    text-decoration: none;
+    min-width: 808px;
+    height: 440px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .slider-fasilitas {
+    background-color: #fff;
+    border: 1px solid #559dcf;
+    border-radius: 3px 3px 3px 3px;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    position: absolute;
+    font-size: 1.0em;
+    text-align: center;
+    text-decoration: none;
+    min-width: 988px;
+    height: 390px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+#tengah {
+    position: relative;
+    width: 1366px;
+    background-image: url(../images/bg_tengah.gif);
+}
+#kiri {
+    float: left;
+    width: 710px;
+	height:700px;
+    background-color: #000000;
+}
+
+#content_kiri_atas {
+    float: left;
+    width: 710px;
+	height:360px;
+        background:white;
+/*	background-image:url(content_kiri_atas.jpg);*/
+}
+
+#content_kiri_bawah {
+    float: left;
+    width: 710px;
+	height:336px;
+        background:white;
+/*	background-image:url(content_kiri_bawah.jpg);*/
+}
+#kanan {
+    position: relative;
+    width: 656px;
+    background-color: #ffffff;
+    float: left;
+}
+.clear {
+    clear: both;
+}
+
+.header {
+    background-color: #ffffff;
+	color:#309C5C;
+	font:Garamond;
+    width: 656px;
+    position: relative;
+	font-size:14px;
+	padding-top: 3px;
+
+}
+#header2{
+    background-image:url(../jamKiosk.jpg);
+    width: 656px;
+	height:82px;
+    position: relative;
+
+}
+.header2 {
+	color:#ffffff;
+
+	font-size:20px;
+	padding: 40px 0 0 90px;
+}
+
+.kepala-ekios{
+	width:1366px;
+	height:140px;
+	float:left;
+	background:url(../01_informasi.jpg); 
+	background-size:100% 141px;
+	margin-top:0px;	
+	margin-bottom:0px;
+	color:white;
+	font-family:"myriad pro";
+}
+
+.kepala_logo_rs_ekios{
+	/*background:url(../logo-tiar.png)no-repeat right top; 
+	background-size:contain;
+	float:right; 										
+	width:249px;										
+	height:73px;		  
+	margin-top:61px;	
+	margin-right:72px;*/	
+}
+
+.gambar_kiosk{
+	background:url(../samping-tiar-ekios.jpg);
+	height:444px;
+	width:320px;
+	margin-top:5px;
+    margin-left: -25px;
+}
+
+.dashboard .block-kiosk {
+    display: inline-block;
+    /*background-color: #F5F5F5;*/
+    background-color: transparent;
+    /*border: 1px solid rgba(0, 0, 0, 0.05);*/
+    border-radius: 4px 4px 4px 4px;
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;*/
+    margin: 5px;
+    min-height: 472px;
+    width: 1020px;
+    padding: 0px;
+}
+
+.dashboard .block-kioskmodule {
+    display: inline-block;
+    background-color: #F5F5F5;
+    /*background-color: transparent;*/
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin: 5px;
+    height: 460px;
+    width: 1020px;
+    padding: 0px;
+}
+
+.dashboard .block-kioskmodule h6 {
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    margin-bottom: 5px;
+}
+
+.dashboard .block-menukiosk {
+    display: inline-block;
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin: 5px;
+    min-height: 20px;
+    padding: 3px;
+    width: 1322px;
+}
+
+.dashboard .block-menukiosk h4 {
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    margin-bottom: 5px;
+}
+
+.dashboard .shortcut-home {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/home_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+	-webkit-transition:background 0.2s linear;
+	-moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-home:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/home_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-fasilitas {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/fasilitas_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-fasilitas:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/fasilitas_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-asuransi {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/asuransi_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-asuransi:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/asuransi_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-perawatan {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/perawatan_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-perawatan:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/perawatan_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-jadwal {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/jadwal_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-jadwal:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/jadwal_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-pelayanan {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/pelayanan_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-pelayanan:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/pelayanan_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-kamar {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/kamar_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-kamar:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/kamar_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-saran {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/saran_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-saran:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/saran_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-janji {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/janji_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-janji:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/janji_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-booking {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/booking_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-booking:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/booking_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcut-denah {
+    background-color: transparent;
+    background-image:url(../../images/kiosk/denah_A.png);
+    border: transparent;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 90px;
+    min-height:98px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcut-denah:hover{
+    background-color: transparent;
+    background-image:url(../../images/kiosk/denah_B.png);
+    border: transparent;
+}
+
+.dashboard .shortcutruangan {
+    background-color: #c9d9e8;
+    border: 1px solid #559dcf;
+    border-radius: 3px 3px 3px 3px;
+    color: #6D6D6D;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    width: 133px;
+    top: 7px;
+    left: 7px;
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+    vertical-align: top;
+/*    width: 105px;*/
+/*    min-height: 110px*/
+}
+
+.dashboard .shortcutruangan:hover{
+    background: none repeat scroll 0 0 #FCE8AB;
+}
+
+#antrian {
+	background-image:url(contentKiosk.jpg);
+	margin-top: 35px;
+	width: 656px;
+	height:450px;
+    position: relative;
+}
+
+#footerAntrian{
+	width : 1366px;
+	height: 60px;
+	font-family:garamond;
+	padding-top:12px;
+	font-size:28px;
+	color:#D6E6AA;
+	background-image:url(footerkoisk.jpg);
+}
+
+
+.space{ text-align:right; padding-top:30px;}
+.content { padding-top: 27px; padding-left: 40px;}
+
+
+

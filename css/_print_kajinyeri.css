@@ -1,0 +1,203 @@
+
+.panel {
+  margin-bottom: 17px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.panel-darkk {
+    border-color: #001F3E;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding-box;
+    border-radius: 3px;
+    background-clip: padding-box;
+} 
+
+.group-title{
+    position: relative;
+    top:-10px;       
+    left:15px;               
+    color:#001F3E;
+    background: #fff;
+    box-shadow:  inset -200px -200px 0px 200px rgba(255,255,255,1) !important;
+    padding:10px;
+    font-weight: bold;
+} 
+
+
+
+.row-fluid {
+    margin-bottom: 0px;
+}
+
+.col-sm-12, .col-sm-2, .col-sm-4, .col-sm-6, .col-sm-8 {
+    padding-left: 2px;
+    padding-right: 2px;
+    float: left;
+}
+
+.col-sm-12 {
+    width: 100%;
+}
+
+.col-sm-6 {
+    width: 50%;
+}
+
+.col-sm-8 {
+    width: 66.66666666%;
+}
+
+.col-sm-4 {
+    width: 33.33333333%;
+}
+
+.col-sm-2 {
+    width: 16.66666666%;
+}
+
+
+body {
+    font-size: 9px !important;
+    color: black !important;
+}
+
+.print_header {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.print_judul {
+    font-weight: bold;
+}
+
+.panel_main {
+    border: 1px solid black !important;
+    margin-bottom: 4px !important;
+}
+
+.panel_main .panel_judul {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.panel_main .panel_body {
+    padding: 3px;
+}
+
+.tab_info {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tab_info > tbody > tr > td:first-child {
+    vertical-align: top;
+    text-align: right;
+    font-weight: bold;
+    width: 150px;
+}
+
+.tab_info.tab_header > tbody > tr > td:first-child {
+    width: 80px;
+}
+
+.tab_info > tbody > tr > td:nth-child(2) {
+    vertical-align: top;
+    width: 10px;
+}
+
+.tab_info > tbody > tr > td:last-child {
+    vertical-align: top;
+}
+
+.triage_item {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    background-color: gray;
+}
+
+.tab_detail {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tab_detail > thead > tr > th, .tab_detail > tbody > tr > th, .tab_detail > thead > tr > td, .tab_detail > tbody > tr > td {
+    border: 1px solid black;
+    padding: 4px;
+    vertical-align: top;
+}
+
+.klasifikasi_triage_item {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+    background-color: lightgray !important;
+    margin-bottom: 1px;
+    margin-top: 2px;
+}
+
+.klasifikasi_merah {
+    background-color: red !important;
+    color: white;
+}
+.klasifikasi_kuning {
+    background-color: yellow !important;
+}
+.klasifikasi_hijau {
+    background-color: green !important;
+    color: white;
+}
+.klasifikasi_hitam {
+    background-color: black !important;
+    color: white;
+}
+
+p {
+    font-size: 9px;
+}
+
+.tab_page {
+    page-break-inside:auto;
+}
+
+.tab_page > tbody > tr {
+    page-break-inside:avoid; page-break-after:auto;
+}
+
+.tab_page > tbody > tr > td {
+    vertical-align: top;
+}
+
+
+.no_erm {
+    text-align: right;
+}
+
+@media print {
+    .klasifikasi_merah {
+        background-color: red !important;
+        color: white;
+        color-adjust:exact;
+    }
+    .klasifikasi_kuning {
+        background-color: yellow !important;
+        color-adjust:exact;
+    }
+    .klasifikasi_hijau {
+        background-color: green !important;
+        color: white;
+        color-adjust:exact;
+    }
+    .klasifikasi_hitam {
+        background-color: black !important;
+        color: white;
+        color-adjust:exact;
+    }
+}
+
+

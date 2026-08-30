@@ -1,0 +1,16 @@
+pipelines:
+  branches:
+    rssa_main:
+      - step:
+          name: Deploy to server3-HQ - repo rssa-running
+          trigger: automatic
+          deployment: server3_HQ
+          script:
+            - echo "Deploying to server3-HQ - repo rssa-running"
+            - pipe: atlassian/ssh-run:0.2.2
+              variables:
+                SSH_USER: $HOST_USER
+                SERVER: $HOST_ADDRESS
+                PORT: $HOST_PORT
+                MODE: 'script'
+                COMMAND: './autodeploycicd/deployserver3_hq.sh'

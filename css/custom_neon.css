@@ -1,0 +1,11 @@
+ .table th a {
+     color: #575757 !important;
+ }
+ 
+ .integer2, .float2 {
+     text-align: right;
+ }
+
+ /*[class^="icon-"], [class*=" icon-"] {                
+     background-image: url("'.Yii::app()->request->baseUrl.'");                
+ }*/

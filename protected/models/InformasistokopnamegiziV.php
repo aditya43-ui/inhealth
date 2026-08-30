@@ -1,0 +1,270 @@
+<?php
+
+/**
+ * This is the model class for table "informasistokopnamegizi_v".
+ *
+ * The followings are the available columns in table 'informasistokopnamegizi_v':
+ * @property integer $formuliropnamegizi_id
+ * @property string $tglformulir
+ * @property string $noformulir
+ * @property integer $stokopnamegizi_id
+ * @property string $tglstokopnamegizi
+ * @property string $nostokopnamegizi
+ * @property boolean $isstokawal
+ * @property string $jenisstokopnamegizi
+ * @property string $keterangan_opname
+ * @property integer $petugas1_id
+ * @property string $petugas1_nip
+ * @property string $petugas1_noidentitas
+ * @property string $petugas1_gelardepan
+ * @property string $petugas1_nama
+ * @property string $petugas1_gelarbelakang
+ * @property integer $petugas2_id
+ * @property string $petugas2_nip
+ * @property string $petugas2_noidentitas
+ * @property string $petugas2_gelardepan
+ * @property string $petugas2_nama
+ * @property string $petugas2_gelarbelakang
+ * @property integer $pegawaimengetahui_id
+ * @property string $pegawaimengetahui_nip
+ * @property string $pegawaimengetahui_noidentitas
+ * @property string $pegawaimengetahui_gelardepan
+ * @property string $pegawaimengetahui_nama
+ * @property string $pegawaimengetahui_gelarbelakang
+ * @property string $create_time
+ * @property string $update_time
+ * @property string $create_loginpemakai_id
+ * @property string $update_loginpemakai_id
+ * @property string $create_ruangan
+ */
+class InformasistokopnamegiziV extends CActiveRecord
+{
+    public $tgl_awal, $tgl_akhir;
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return InformasistokopnamegiziV the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'informasistokopnamegizi_v';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('formuliropnamegizi_id, stokopnamegizi_id, petugas1_id, petugas2_id, pegawaimengetahui_id', 'numerical', 'integerOnly'=>true),
+			array('noformulir, nostokopnamegizi, jenisstokopnamegizi, petugas1_nama, petugas2_nama, pegawaimengetahui_nama', 'length', 'max'=>50),
+			array('petugas1_nip, petugas2_nip, pegawaimengetahui_nip', 'length', 'max'=>30),
+			array('petugas1_noidentitas, petugas2_noidentitas, pegawaimengetahui_noidentitas', 'length', 'max'=>100),
+			array('petugas1_gelardepan, petugas2_gelardepan, pegawaimengetahui_gelardepan', 'length', 'max'=>10),
+			array('petugas1_gelarbelakang, petugas2_gelarbelakang, pegawaimengetahui_gelarbelakang', 'length', 'max'=>15),
+			array('tglformulir, tglstokopnamegizi, isstokawal, keterangan_opname, create_time, update_time, create_loginpemakai_id, update_loginpemakai_id, create_ruangan', 'safe'),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('formuliropnamegizi_id, tglformulir, noformulir, stokopnamegizi_id, tglstokopnamegizi, nostokopnamegizi, isstokawal, jenisstokopnamegizi, keterangan_opname, petugas1_id, petugas1_nip, petugas1_noidentitas, petugas1_gelardepan, petugas1_nama, petugas1_gelarbelakang, petugas2_id, petugas2_nip, petugas2_noidentitas, petugas2_gelardepan, petugas2_nama, petugas2_gelarbelakang, pegawaimengetahui_id, pegawaimengetahui_nip, pegawaimengetahui_noidentitas, pegawaimengetahui_gelardepan, pegawaimengetahui_nama, pegawaimengetahui_gelarbelakang, create_time, update_time, create_loginpemakai_id, update_loginpemakai_id, create_ruangan', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'formuliropnamegizi_id' => 'Formuliropnamegizi',
+			'tglformulir' => 'Tgl. Formulir',
+			'noformulir' => 'No. Formulir',
+			'stokopnamegizi_id' => 'Stokopnamegizi',
+			'tglstokopnamegizi' => 'Tgl. Stok Opname',
+			'nostokopnamegizi' => 'No. Stok Opname',
+			'isstokawal' => 'Isstokawal',
+			'jenisstokopnamegizi' => 'Jenis Opname',
+			'keterangan_opname' => 'Keterangan Opname',
+			'petugas1_id' => 'Petugas1',
+			'petugas1_nip' => 'Petugas1 Nip',
+			'petugas1_noidentitas' => 'Petugas1 Noidentitas',
+			'petugas1_gelardepan' => 'Petugas1 Gelardepan',
+			'petugas1_nama' => 'Petugas1 Nama',
+			'petugas1_gelarbelakang' => 'Petugas1 Gelarbelakang',
+			'petugas2_id' => 'Petugas2',
+			'petugas2_nip' => 'Petugas2 Nip',
+			'petugas2_noidentitas' => 'Petugas2 Noidentitas',
+			'petugas2_gelardepan' => 'Petugas2 Gelardepan',
+			'petugas2_nama' => 'Petugas2 Nama',
+			'petugas2_gelarbelakang' => 'Petugas2 Gelarbelakang',
+			'pegawaimengetahui_id' => 'Pegawaimengetahui',
+			'pegawaimengetahui_nip' => 'Pegawaimengetahui Nip',
+			'pegawaimengetahui_noidentitas' => 'Pegawaimengetahui Noidentitas',
+			'pegawaimengetahui_gelardepan' => 'Pegawaimengetahui Gelardepan',
+			'pegawaimengetahui_nama' => 'Pegawaimengetahui Nama',
+			'pegawaimengetahui_gelarbelakang' => 'Pegawaimengetahui Gelarbelakang',
+			'create_time' => 'Waktu Create',
+			'update_time' => 'Waktu Update',
+			'create_loginpemakai_id' => 'Create Login Pemakai',
+			'update_loginpemakai_id' => 'Update Login Pemakai',
+			'create_ruangan' => 'Create Ruangan',
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('formuliropnamegizi_id',$this->formuliropnamegizi_id);
+		$criteria->compare('tglformulir',$this->tglformulir,true);
+		$criteria->compare('noformulir',$this->noformulir,true);
+		$criteria->compare('stokopnamegizi_id',$this->stokopnamegizi_id);
+		$criteria->compare('tglstokopnamegizi',$this->tglstokopnamegizi,true);
+		$criteria->compare('nostokopnamegizi',$this->nostokopnamegizi,true);
+		$criteria->compare('isstokawal',$this->isstokawal);
+		$criteria->compare('jenisstokopnamegizi',$this->jenisstokopnamegizi,true);
+		$criteria->compare('keterangan_opname',$this->keterangan_opname,true);
+		$criteria->compare('petugas1_id',$this->petugas1_id);
+		$criteria->compare('petugas1_nip',$this->petugas1_nip,true);
+		$criteria->compare('petugas1_noidentitas',$this->petugas1_noidentitas,true);
+		$criteria->compare('petugas1_gelardepan',$this->petugas1_gelardepan,true);
+		$criteria->compare('petugas1_nama',$this->petugas1_nama,true);
+		$criteria->compare('petugas1_gelarbelakang',$this->petugas1_gelarbelakang,true);
+		$criteria->compare('petugas2_id',$this->petugas2_id);
+		$criteria->compare('petugas2_nip',$this->petugas2_nip,true);
+		$criteria->compare('petugas2_noidentitas',$this->petugas2_noidentitas,true);
+		$criteria->compare('petugas2_gelardepan',$this->petugas2_gelardepan,true);
+		$criteria->compare('petugas2_nama',$this->petugas2_nama,true);
+		$criteria->compare('petugas2_gelarbelakang',$this->petugas2_gelarbelakang,true);
+		$criteria->compare('pegawaimengetahui_id',$this->pegawaimengetahui_id);
+		$criteria->compare('pegawaimengetahui_nip',$this->pegawaimengetahui_nip,true);
+		$criteria->compare('pegawaimengetahui_noidentitas',$this->pegawaimengetahui_noidentitas,true);
+		$criteria->compare('pegawaimengetahui_gelardepan',$this->pegawaimengetahui_gelardepan,true);
+		$criteria->compare('pegawaimengetahui_nama',$this->pegawaimengetahui_nama,true);
+		$criteria->compare('pegawaimengetahui_gelarbelakang',$this->pegawaimengetahui_gelarbelakang,true);
+		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('update_time',$this->update_time,true);
+		$criteria->compare('create_loginpemakai_id',$this->create_loginpemakai_id,true);
+		$criteria->compare('update_loginpemakai_id',$this->update_loginpemakai_id,true);
+		$criteria->compare('create_ruangan',$this->create_ruangan,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+    
+    
+    public function searchInformasi()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->addBetweenCondition('DATE(tglstokopnamegizi)',$this->tgl_awal,$this->tgl_akhir,true);
+        /*
+		if(!empty($this->instalasi_id)){
+			$criteria->addCondition('instalasi_id = '.$this->instalasi_id);
+		}
+		$criteria->compare('instalasi_nama',$this->instalasi_nama,true);
+		if(!empty($this->ruangan_id)){
+			$criteria->addCondition('ruangan_id = '.$this->ruangan_id);
+		}
+		$criteria->compare('ruangan_nama',$this->ruangan_nama,true);
+		if(!empty($this->formuliropname_id)){
+			$criteria->addCondition('formuliropname_id = '.$this->formuliropname_id);
+		}
+         * 
+         */
+		$criteria->compare('tglformulir',$this->tglformulir,true);
+		$criteria->compare('noformulir',$this->noformulir,true);
+		$criteria->compare('stokopnamegizi_id',$this->stokopnamegizi_id);
+		$criteria->compare('nostokopnamegizi',$this->nostokopnamegizi,true);
+		$criteria->compare('isstokawal',$this->isstokawal);
+		$criteria->compare('jenisstokopnamegizi',$this->jenisstokopnamegizi,true);
+		$criteria->compare('keterangan_opname',$this->keterangan_opname,true);
+		//$criteria->compare('totalharga',$this->totalharga);
+		//$criteria->compare('totalnetto',$this->totalnetto);
+		if(!empty($this->petugas1_id)){
+			$criteria->addCondition('petugas1_id = '.$this->petugas1_id);
+		}
+		$criteria->compare('petugas1_nip',$this->petugas1_nip,true);
+		$criteria->compare('petugas1_noidentitas',$this->petugas1_noidentitas,true);
+		$criteria->compare('petugas1_gelardepan',$this->petugas1_gelardepan,true);
+		$criteria->compare('petugas1_nama',$this->petugas1_nama,true);
+		$criteria->compare('petugas1_gelarbelakang',$this->petugas1_gelarbelakang,true);
+		if(!empty($this->petugas2_id)){
+			$criteria->addCondition('petugas2_id = '.$this->petugas2_id);
+		}
+		$criteria->compare('petugas2_nip',$this->petugas2_nip,true);
+		$criteria->compare('petugas2_noidentitas',$this->petugas2_noidentitas,true);
+		$criteria->compare('petugas2_gelardepan',$this->petugas2_gelardepan,true);
+		$criteria->compare('petugas2_nama',$this->petugas2_nama,true);
+		$criteria->compare('petugas2_gelarbelakang',$this->petugas2_gelarbelakang,true);
+		if(!empty($this->pegawaimengetahui_id)){
+			$criteria->addCondition('pegawaimengetahui_id = '.$this->pegawaimengetahui_id);
+		}
+		$criteria->compare('pegawaimengetahui_nip',$this->pegawaimengetahui_nip,true);
+		$criteria->compare('pegawaimengetahui_noidentitas',$this->pegawaimengetahui_noidentitas,true);
+		$criteria->compare('pegawaimengetahui_gelardepan',$this->pegawaimengetahui_gelardepan,true);
+		$criteria->compare('pegawaimengetahui_nama',$this->pegawaimengetahui_nama,true);
+		$criteria->compare('pegawaimengetahui_gelarbelakang',$this->pegawaimengetahui_gelarbelakang,true);
+		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('update_time',$this->update_time,true);
+		if(!empty($this->create_loginpemakai_id)){
+			$criteria->addCondition('create_loginpemakai_id = '.$this->create_loginpemakai_id);
+		}
+		if(!empty($this->update_loginpemakai_id)){
+			$criteria->addCondition('update_loginpemakai_id = '.$this->update_loginpemakai_id);
+		}
+		if(!empty($this->create_ruangan)){
+			$criteria->addCondition('create_ruangan = '.$this->create_ruangan);
+		}
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+    
+    public function getMengetahui()
+    {
+        return (isset($this->pegawaimengetahui_gelardepan) ? $this->pegawaimengetahui_gelardepan : "").' '.$this->pegawaimengetahui_nama.(isset($this->pegawaimengetahui_gelarbelakang) ? ', '.$this->pegawaimengetahui_gelarbelakang : "");
+    }
+
+    public function getPetugas1()
+    {
+        return (isset($this->petugas1_gelardepan) ? $this->petugas1_gelardepan : "").' '.$this->petugas1_nama.(isset($this->petugas1_gelarbelakang) ? ', '.$this->petugas1_gelarbelakang : "");
+    }
+
+    public function getPetugas2()
+    {
+        return (isset($this->petugas2_gelardepan) ? $this->petugas2_gelardepan : "").' '.$this->petugas2_nama.(isset($this->petugas2_gelarbelakang) ? ', '.$this->petugas2_gelarbelakang : "");
+    }
+}

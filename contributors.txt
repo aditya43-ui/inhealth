@@ -1,0 +1,15 @@
+—README—
+SIMRS (Sistem Informasi Manajemen Rumah Sakit).
+
+### What is this repository for? ###
+* Aplikasi SIMRS.
+* Version : 2.0.0
+
+### How do I get set up? ###
+* Setup dilakukan oleh Development & IT Team
+* Dependencies: PHP 7.4-FPM, PostgreSQL, Nginx
+* Database configuration di protected/config/db.php
+
+### Contribution guidelines ###
+* Writing tests
+* Code review

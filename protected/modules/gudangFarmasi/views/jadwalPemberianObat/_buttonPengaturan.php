@@ -1,0 +1,2 @@
+<?php echo CHtml::link(Yii::t('mds', '{icon} Pengaturan Jadwal Pemberian Obat', array('{icon}'=>'<i class="entypo-folder"></i>')),
+    $this->createUrl('admin',array('modul_id'=> Yii::app()->session['modul_id'])), array('class'=>'btn btn-success')).'&nbsp;';?>                 

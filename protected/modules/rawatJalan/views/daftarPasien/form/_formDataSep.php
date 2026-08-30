@@ -1,0 +1,32 @@
+<div class="row-fluid">
+    <?php echo CHtml::hiddenField('no_sep', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('tgl_sep', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('jns_pelayanan', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('poli_pelayanan', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('poli_eksekutif', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('kls_rawat', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('kls_rawat_naik', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('kls_rawat_pj', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('diagnosa', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('status_kecelakaan', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('tgl_kejadian', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('propinsi', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('kabupaten', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('kecamatan', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('keterangan_kecelakaan', '', array('class' => 'span3', 'readonly' => true)); ?>  
+    <?php echo CHtml::hiddenField('penjamin', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('dpjp_pelayanan', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('dokter_kontrol', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('surat_kontrol', '', array('class' => 'span3', 'readonly' => true)); ?>   
+    <?php echo CHtml::hiddenField('asuransi', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('no_kartu', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('no_rm', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('nama', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('tgl_lahir', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('jns_kelamin', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('hak_akses', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('jns_peserta', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('cob', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('katarak', '', array('class' => 'span3', 'readonly' => true)); ?>
+    <?php echo CHtml::hiddenField('keterangan_sep', '', array('class' => 'span3', 'readonly' => true)); ?>
+</div>

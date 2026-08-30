@@ -1,0 +1,33 @@
+<span class="required"><i>Bagian dengan tanda * harus diisi.</i></span>
+<p>
+<table style="width:100%; padding: none; border: none;">
+  <tr>
+    <td style="width: 20px;">1.</td>
+    <td>Icon <i class="entypo-calendar"></i> untuk menentukan tanggal dan waktu presensi.</td>
+  </tr>
+  <tr>
+      <td>2</td>
+        <td>Gunakan icon ini <span class="add-on">
+        <a id="" href="javascript:void(0);" onclick="$("#dialogObatAlkes").dialog("open");return false;">
+        <i class="icon-list-alt"></i>
+        <i class="entypo-search"></i>
+        </a>
+        </span> berfungsi untuk mencari dan menampilkan daftar datanya.</td>
+  </tr>
+       <td>3</td>
+        <td>Gunakan tombol ini  <button class="btn btn-primary" name="yt0" onkeypress="return formSubmit(this,event)" type="submit">
+<i class="entypo-check"></i>
+Simpan
+</button>
+Cari
+</button> berfungsi untuk menyimpan data.</td>
+  <tr>
+    <td>4</td>
+    <td>Gunakan tombol ini <a class="btn btn-default" href="/simrs/index.php?r=rawatInap/pasienRawatInap/formTindakLanjutDariPasienRI">
+<i class="entypo-arrows-ccw"></i>
+Ulang
+</a> untuk mengulang kembali inputan.</td>
+  </tr>
+</table>
+</p>
+

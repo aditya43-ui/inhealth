@@ -1,0 +1,160 @@
+<?php $linkHalaman = CustomFunction::getUrlByMenuID(176); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery.tiler.js'); //UNTUK PEMERIKSAAN LAB 
+?>
+<?php
+if (isset($_GET['sukses'])) {
+    Yii::app()->user->setFlash('success', "Data Pasien " . $modKunjungan->pendaftaran->pasien->nama_pasien . " Berhasil disimpan");
+}
+
+$this->breadcrumbs = array(
+    'Pemakaian Bahan',
+);
+?>
+<?php $this->widget('bootstrap.widgets.BootAlert'); ?>
+
+<?php $form = $this->beginWidget('ext.bootstrap.widgets.BootActiveForm', array(
+    'id' => 'pemakaianbahp-form',
+    'enableAjaxValidation' => false,
+    'type' => 'horizontal',
+    'htmlOptions' => array('onKeyPress' => 'return disableKeyPress(event);', 'onsubmit' => 'return requiredCheck(this);'),
+    'focus' => '#no_pendaftaran',
+)); ?>
+
+<div class="panel panel-gradient">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="fas fa-mortar-pestle"></i> Pemakaian <b>Bahan</b>
+            <span class="pull-right">
+                <a href="<?= !empty($linkHalaman) ? $linkHalaman : '#'; ?>" class="btn btn-default" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Ke Halaman Informasi
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <i class="far fa-file-alt"></i> Data <b>Kunjungan</b>
+                </div>
+            </div>
+            <div class="panel-body" id="form-datakunjungan">
+                <!--fieldset class="box"-->
+                <div class="row">
+                    <?php $this->renderPartial($this->path_view . '_formInfoKunjungan', array('form' => $form, 'modKunjungan' => $modKunjungan)); ?>
+                </div>
+                <!--</fieldset>-->
+            </div>
+        </div>
+        <?php $this->Widget('ext.bootstrap.widgets.BootAccordion', array(
+            'id' => 'riwayat-obatalkespasien-t',
+            'htmlOptions' => array('style' => 'margin-bottom: 17px;',),
+            'content' => array(
+                'content-riwayat-obatalkespasien-t' => array(
+                    'header' => '<b>Tabel Riwayat Obat dan Alat Kesehatan Pasien</b>',
+                    'isi' => '
+                            <table class="table table-bordered table-condensed table-striped">
+                                <thead>
+                                    <th>No.</th>
+                                    <th>Tgl. Pelayanan</th>
+                                    <th>Obat / Alat Kesehatan</th>
+                                    <th hidden>Satuan Kecil</th>
+                                    <th>Jumlah</th>
+                                    <th>Hapus</th>
+                                </thead>
+                                <tbody>
+                                    <tr><td colspan=7>Data tidak ditemukan</td></tr>
+                                </tbody>
+                            </table>',
+                    'active' => true,
+                ),
+            ),
+        )); ?>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <i class="fas fa-pills"></i> Obat dan Alkes
+                </div>
+            </div>
+            <div class="panel-body table-responsive" id="form-tambahobatalkes">
+                <!--fieldset class="box" id="form-tambahobatalkes"-->
+                <div class="row">
+                    <?php $this->renderPartial($this->path_view . '_formObatAlkesPasien', array('modKunjungan' => $modKunjungan)); ?>
+                </div>
+                <!--div class="block-tabel"-->
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <i class="entypo-credit-card"></i> Tabel <b>Bahan</b>
+                        </div>
+                    </div>
+                    <div class="panel-body table-responsive">
+                        <table class="items table table-bordered table-striped table-condensed" id="table-obatalkespasien">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Obat / Alat Kesehatan</th>
+                                    <th hidden>Satuan Kecil</th>
+                                    <th>Harga</th>
+                                    <th hidden>Stok</th>
+                                    <th>Jumlah</th>
+                                    <th>Batal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if (count((array)$dataOas) > 0) {
+                                    foreach ($dataOas as $i => $modObatAlkesPasien) {
+                                        echo $this->renderPartial($this->path_view . '_rowObatAlkesPasien', array('modObatAlkesPasien' => $modObatAlkesPasien));
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--/div-->
+                <!--</fieldset>-->
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <?php
+            if (!isset($_GET['sukses'])) {
+                echo CHtml::htmlButton(
+                    Yii::t('mds', '{icon} Save', array('{icon}' => '<i class="entypo-check"></i>')),
+                    array('title' => 'Simpan', 'class' => 'btn btn-danger', 'type' => 'submit', 'onclick' => 'formSubmit(this,event);', 'onkeypress' => 'formSubmit(this,event);')
+                );
+            } else {
+                echo CHtml::htmlButton(
+                    Yii::t('mds', '{icon} Save', array('{icon}' => '<i class="entypo-check"></i>')),
+                    array('title' => 'Simpan', 'class' => 'btn btn-danger', 'type' => 'button', 'onkeypress' => 'formSubmit(this,event);', 'disabled' => TRUE)
+                );
+            }
+            if (!isset($_GET['frame'])) {
+                echo CHtml::link(
+                    Yii::t('mds', '{icon} Reset', array('{icon}' => '<i class="entypo-arrows-ccw"></i>')),
+                    $this->createUrl($this->module->id . '/index'),
+                    array(
+                        'title' => 'Ulang',
+                        'class' => 'btn btn-default',
+                        'onclick' => 'myConfirm("Apakah Anda ingin mengulang ini?","Perhatian!",function(r) {if(r) window.location = "' . $this->createUrl('index') . '";} ); return false;'
+                    )
+                );
+            }
+            if (!isset($_GET['sukses'])) {
+                echo CHtml::link(Yii::t('mds', '{icon} Print', array('{icon}' => '<i class="entypo-print"></i>')), 'javascript:void(0);', array('class' => 'btn btn-info', 'disabled' => 'true'));
+            } else {
+                echo CHtml::link(Yii::t('mds', '{icon} Print', array('{icon}' => '<i class="entypo-print"></i>')), 'javascript:void(0);', array('class' => 'btn btn-info', 'onclick' => "print('" . (!empty($modKunjungan->pasienadmisi_id) ? $modKunjungan->pasienadmisi_id : '') . "','" . $modKunjungan->pendaftaran_id . "');return false"));
+            }
+
+            $content = $this->renderPartial('laboratorium.views.pemakaianBahan.tips.tipsPemakaianBahan', array(), true);
+            $this->widget('UserTips', array('type' => 'transaksi', 'content' => $content));
+            ?>
+        </div>
+    </div>
+</div>
+
+<?php $this->endWidget(); ?>
+
+<?php $this->renderPartial($this->path_view . '_jsFunctions', array('modKunjungan' => $modKunjungan, 'modObatAlkesPasien' => $modObatAlkesPasien)); ?>

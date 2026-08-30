@@ -1,0 +1,53 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+.page-container {
+    position: static !important;
+    padding-left: 0px !important;
+}
+
+.page-container.sidebar-collapsed .sidebar-menu{
+    z-index:9;
+    top:10px !important;
+}
+.page-container.horizontal-menu.with-sidebar .sidebar-menu{
+    top:0px !important;
+
+    z-index:7;
+}
+.page-container.horizontal-menu.with-sidebar .sidebar-menu3{
+    top:92px !important;
+
+    z-index:7;
+}
+
+.sidebar-menu3{
+    height:100vh;     
+}
+.page-container .sidebar-menu{
+    width:100%;
+}
+.page-container .main-content{
+    padding-left:80px;
+}
+.page-container .sidebar-menu3{
+    width:4%;
+    top:92px !important;
+
+    z-index:7 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .page-container .main-content{
+        padding-left:20px;
+    }
+   
+    .favmenu{
+        display: none;   
+    }
+}
+
+
